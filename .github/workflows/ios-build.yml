@@ -39,21 +39,19 @@ jobs:
       - name: Add iOS platform
         run: npx cap add ios
 
-      - name: Install CocoaPods & Pods
+      - name: Ensure CocoaPods available
         run: |
-          # macOS-15 runner 需要确保 cocoapods 可用
           if ! command -v pod &>/dev/null; then
             brew install cocoapods
           fi
-          cd ios/App
-          pod install --repo-update
+          pod --version
 
       - name: Copy pre-built icons
         run: |
           cp -R resources/ios/AppIcon.appiconset ios/App/App/Assets.xcassets/
           cp -R resources/ios/Splash.imageset ios/App/App/Assets.xcassets/
 
-      - name: Sync Capacitor
+      - name: Sync Capacitor (generates Podfile + runs pod install)
         run: npx cap sync ios
 
       - name: Inject Info.plist config (ATS + Display Name + Orientation)
