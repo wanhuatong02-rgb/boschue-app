@@ -39,10 +39,14 @@ jobs:
       - name: Add iOS platform
         run: npx cap add ios
 
-      - name: Install CocoaPods
+      - name: Install CocoaPods & Pods
         run: |
+          # macOS-15 runner 需要确保 cocoapods 可用
+          if ! command -v pod &>/dev/null; then
+            brew install cocoapods
+          fi
           cd ios/App
-          pod install
+          pod install --repo-update
 
       - name: Copy pre-built icons
         run: |
