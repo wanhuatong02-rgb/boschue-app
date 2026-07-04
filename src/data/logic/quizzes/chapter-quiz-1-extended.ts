@@ -1,0 +1,92 @@
+import type { Quiz } from '@/types';
+import { CHAPTER_QUIZ_1_EXTENSION } from './chapter-quiz-1-extension';
+
+// 逻辑学第一章测验（逻辑学基础）- 扩展版（共10题）
+export const CHAPTER_QUIZ_1_EXTENDED: Quiz[] = [
+  {
+    id: 'LQ-CH1-Q1',
+    refId: 'L-CH1',
+    type: 'chapter-quiz',
+    subjectId: 'logic',
+    question: '逻辑学主要研究的是什么？',
+    options: [
+      { id: 'A', text: '人类社会的发展规律' },
+      { id: 'B', text: '思维的形式结构及其规律' },
+      { id: 'C', text: '自然界的物质运动' },
+      { id: 'D', text: '心理活动的过程' },
+    ],
+    correctOptionId: 'B',
+    explanation: '逻辑学是研究思维的形式结构及其规律的科学，主要研究概念、命题、推理和论证。',
+    hint: '回想逻辑学的研究对象',
+    knowledgePoints: ['逻辑学的定义与意义'],
+  },
+  {
+    id: 'LQ-CH1-Q2',
+    refId: 'L-CH1',
+    type: 'chapter-quiz',
+    subjectId: 'logic',
+    question: '以下哪项是一个命题？',
+    options: [
+      { id: 'A', text: '请关上门' },
+      { id: 'B', text: '今天天气真好' },
+      { id: 'C', text: '你好吗？' },
+      { id: 'D', text: '加油！' },
+    ],
+    correctOptionId: 'B',
+    explanation: '命题是能够被判断为真或假的陈述句。"今天天气真好"是一个可以判断真假的陈述句，而祈使句、疑问句、感叹句都不是命题。',
+    hint: '命题必须能判断真假',
+    knowledgePoints: ['命题与语句'],
+  },
+  {
+    id: 'LQ-CH1-Q3',
+    refId: 'L-CH1',
+    type: 'chapter-quiz',
+    subjectId: 'logic',
+    question: '演绎推理的特点是什么？',
+    options: [
+      { id: 'A', text: '前提真则结论必然真' },
+      { id: 'B', text: '结论总是比前提更广泛' },
+      { id: 'C', text: '结论具有或然性' },
+      { id: 'D', text: '只能用于数学证明' },
+    ],
+    correctOptionId: 'A',
+    explanation: '演绎推理具有保真性：如果前提真实且推理形式有效，结论必然为真。',
+    hint: '演绎推理的可靠性来自哪里',
+    knowledgePoints: ['演绎与归纳'],
+  },
+  {
+    id: 'LQ-CH1-Q4',
+    refId: 'L-CH1',
+    type: 'chapter-quiz',
+    subjectId: 'logic',
+    question: '"所有人都会死；苏格拉底是人；所以苏格拉底会死"属于哪种推理？',
+    options: [
+      { id: 'A', text: '归纳推理' },
+      { id: 'B', text: '类比推理' },
+      { id: 'C', text: '演绎推理' },
+      { id: 'D', text: '溯因推理' },
+    ],
+    correctOptionId: 'C',
+    explanation: '这是一个经典的直言三段论，属于演绎推理。从一般性前提"所有人都会死"推出特殊性结论"苏格拉底会死"。',
+    hint: '从一般到特殊的推理方式',
+    knowledgePoints: ['直言三段论'],
+  },
+  {
+    id: 'LQ-CH1-Q5',
+    refId: 'L-CH1',
+    type: 'chapter-quiz',
+    subjectId: 'logic',
+    question: '一个论证如果形式有效且所有前提都为真，则称为？',
+    options: [
+      { id: 'A', text: '有效的论证' },
+      { id: 'B', text: '可靠的论证' },
+      { id: 'C', text: '归纳的论证' },
+      { id: 'D', text: '科学的论证' },
+    ],
+    correctOptionId: 'B',
+    explanation: '可靠的论证要求既形式有效又前提真实。只有可靠的论证才能保证结论必然为真。',
+    hint: '比有效性更强的一级标准',
+    knowledgePoints: ['有效性与可靠性'],
+  },
+  ...CHAPTER_QUIZ_1_EXTENSION
+];

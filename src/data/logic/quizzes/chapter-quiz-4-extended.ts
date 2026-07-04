@@ -1,0 +1,92 @@
+import type { Quiz } from '@/types';
+import { CHAPTER_QUIZ_4_EXTENSION } from './chapter-quiz-4-extension';
+
+// 逻辑学第四章测验（非形式逻辑与谬误）- 扩展版（共10题）
+export const CHAPTER_QUIZ_4_EXTENDED: Quiz[] = [
+  {
+    id: 'LQ-CH4-Q1',
+    refId: 'L-CH4',
+    type: 'chapter-quiz',
+    subjectId: 'logic',
+    question: '"你这么穷，有什么资格谈理财？"这犯了什么谬误？',
+    options: [
+      { id: 'A', text: '稻草人谬误' },
+      { id: 'B', text: '人身攻击谬误' },
+      { id: 'C', text: '滑坡谬误' },
+      { id: 'D', text: '诉诸情感谬误' },
+    ],
+    correctOptionId: 'B',
+    explanation: '人身攻击谬误（Ad hominem）是指不反驳对方观点，而是攻击对方的人格或处境来否定其论证的合理性。',
+    hint: '是否在攻击人而不是反驳观点',
+    knowledgePoints: ['相干谬误'],
+  },
+  {
+    id: 'LQ-CH4-Q2',
+    refId: 'L-CH4',
+    type: 'chapter-quiz',
+    subjectId: 'logic',
+    question: '"如果允许孩子晚睡，他以后就再也不按时睡觉了"犯了什么谬误？',
+    options: [
+      { id: 'A', text: '稻草人谬误' },
+      { id: 'B', text: '复杂问语' },
+      { id: 'C', text: '滑坡谬误' },
+      { id: 'D', text: '虚假两难' },
+    ],
+    correctOptionId: 'C',
+    explanation: '滑坡谬误夸大了某个初始行动的可能后果，声称一个小的第一步必然导致一系列严重的后果。',
+    hint: '是否夸大了后果的严重性',
+    knowledgePoints: ['预设谬误'],
+  },
+  {
+    id: 'LQ-CH4-Q3',
+    refId: 'L-CH4',
+    type: 'chapter-quiz',
+    subjectId: 'logic',
+    question: '"我爷爷抽烟活到90岁，所以抽烟对身体无害"犯了什么谬误？',
+    options: [
+      { id: 'A', text: '诉诸权威' },
+      { id: 'B', text: '以偏概全' },
+      { id: 'C', text: '歧义谬误' },
+      { id: 'D', text: '诉诸大众' },
+    ],
+    correctOptionId: 'B',
+    explanation: '以偏概全（轻率概括）是从少数或个别的例子推出一般性结论的谬误。一个案例不能代表整体情况。',
+    hint: '个别案例推出一般结论的问题',
+    knowledgePoints: ['证据谬误'],
+  },
+  {
+    id: 'LQ-CH4-Q4',
+    refId: 'L-CH4',
+    type: 'chapter-quiz',
+    subjectId: 'logic',
+    question: '归谬法在科学推理中的核心思想是什么？',
+    options: [
+      { id: 'A', text: '通过实验证明所有可能性' },
+      { id: 'B', text: '假设结论为假，推导出矛盾从而证明结论为真' },
+      { id: 'C', text: '依赖权威人士的判断' },
+      { id: 'D', text: '收集尽可能多的数据' },
+    ],
+    correctOptionId: 'B',
+    explanation: '归谬法假设待证命题的否定，推导出矛盾，从而证明原命题成立，是科学推理和数学证明的重要方法。',
+    hint: '反证法的逻辑基础',
+    knowledgePoints: ['科学推理与假说演绎法'],
+  },
+  {
+    id: 'LQ-CH4-Q5',
+    refId: 'L-CH4',
+    type: 'chapter-quiz',
+    subjectId: 'logic',
+    question: '密尔五法主要用于研究什么？',
+    options: [
+      { id: 'A', text: '归纳推理的形式' },
+      { id: 'B', text: '因果关系的确定' },
+      { id: 'C', text: '概念的定义方法' },
+      { id: 'D', text: '论证的结构分析' },
+    ],
+    correctOptionId: 'B',
+    explanation: '密尔五法（契合法、差异法、契合差异并用法、剩余法、共变法）是确定因果关系的基本方法。',
+    hint: '密尔方法的核心用途',
+    knowledgePoints: ['因果推理'],
+  },
+  ...CHAPTER_QUIZ_4_EXTENSION
+];
