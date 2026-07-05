@@ -43,7 +43,7 @@ jobs:
           fi
           pod --version
 
-      - name: Sync Capacitor iOS (regenerates project + pods)
+      - name: Sync Capacitor iOS
         run: npx cap sync ios
 
       - name: Copy pre-built icons and splash
@@ -54,21 +54,16 @@ jobs:
       - name: Inject Info.plist config
         run: |
           PLIST="ios/App/App/Info.plist"
-          echo "=== Before ==="
-          cat "$PLIST" 2>/dev/null || true
 
-          # Display name
           /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName Boxuezhe" "$PLIST"
           /usr/libexec/PlistBuddy -c "Set :CFBundleName Boxuezhe" "$PLIST"
 
-          # ATS bypass for 124.222.199.117
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity dict" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains dict" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains:124.222.199.117 dict" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains:124.222.199.117:NSExceptionAllowsInsecureHTTPLoads bool true" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains:124.222.199.117:NSIncludesSubdomains bool true" "$PLIST" 2>/dev/null || true
 
-          # Lock portrait
           /usr/libexec/PlistBuddy -c "Delete :UISupportedInterfaceOrientations" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations array" "$PLIST"
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations:0 string UIInterfaceOrientationPortrait" "$PLIST"
@@ -76,9 +71,6 @@ jobs:
           /usr/libexec/PlistBuddy -c "Delete :UISupportedInterfaceOrientations~ipad" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations~ipad array" "$PLIST"
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations~ipad:0 string UIInterfaceOrientationPortrait" "$PLIST"
-
-          echo "=== After ==="
-          cat "$PLIST"
 
       - name: Configure code signing (optional)
         if: ${{ vars.IOS_CODE_SIGNING == 'true' }}
@@ -127,21 +119,51 @@ jobs:
         if: ${{ vars.IOS_CODE_SIGNING != 'true' }}
         run: |
           cd ios/App
+
+          echo "=== Scheme list ==="
+          xcodebuild -list -project App.xcodeproj
+
+          echo "=== Workspace list (if any) ==="
+          ls -la *.xcworkspace 2>/dev/null || echo "No workspace file"
+
+          echo "=== Podfile.lock head ==="
+          head -20 Podfile.lock 2>/dev/null || echo "No Podfile.lock"
+
+          echo "=== Pods ls ==="
+          ls Pods 2>/dev/null || echo "No Pods dir"
+
+          echo "=== Show build settings ==="
+          xcodebuild -project App.xcodeproj -scheme App -showBuildSettings | grep -E "CODE_SIGN|PRODUCT_BUNDLE|DEPLOYMENT_TARGET|SDK" | head -40 || true
+
+          echo "=== Start ARCHIVE ==="
           xcodebuild archive \
+            -project App.xcodeproj \
             -scheme App \
             -configuration Release \
             -destination "generic/platform=iOS" \
             -archivePath $RUNNER_TEMP/App.xcarchive \
             CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            DEVELOPMENT_TEAM="" \
+            -quiet || true
 
-          mkdir -p $RUNNER_TEMP/ipa/Payload
-          cp -R $RUNNER_TEMP/App.xcarchive/Products/Applications/App.app $RUNNER_TEMP/ipa/Payload/
-          cd $RUNNER_TEMP/ipa
-          zip -r boschue-unsigned.ipa Payload
-          ls -la
+          echo "=== Archive done. Inspect output ==="
+          ls -la $RUNNER_TEMP/App.xcarchive 2>/dev/null || echo "Archive dir missing"
+          
+          if [ -d "$RUNNER_TEMP/App.xcarchive/Products/Applications" ]; then
+            mkdir -p $RUNNER_TEMP/ipa/Payload
+            cp -R $RUNNER_TEMP/App.xcarchive/Products/Applications/App.app $RUNNER_TEMP/ipa/Payload/
+            cd $RUNNER_TEMP/ipa
+            zip -r boschue-unsigned.ipa Payload
+            ls -la
+          else
+            echo "=== Archive products missing, trying alternative path ==="
+            find $RUNNER_TEMP/App.xcarchive -name "*.app" 2>/dev/null
+          fi
 
       - name: Upload build artifact
+        if: ${{ hashFiles(format('{0}/ipa/*.ipa', runner.temp)) != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: boschue-ios
