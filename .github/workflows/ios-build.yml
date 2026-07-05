@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  APP_NAME: 博学者
+  APP_NAME: Boxuezhe
   BUNDLE_ID: com.boxuezhe.app
   IOS_DEPLOYMENT_TARGET: '17.0'
 
@@ -36,9 +36,6 @@ jobs:
       - name: Build web project
         run: npm run build
 
-      - name: Add iOS platform
-        run: npx cap add ios
-
       - name: Ensure CocoaPods available
         run: |
           if ! command -v pod &>/dev/null; then
@@ -46,41 +43,42 @@ jobs:
           fi
           pod --version
 
-      - name: Copy pre-built icons
+      - name: Sync Capacitor iOS (regenerates project + pods)
+        run: npx cap sync ios
+
+      - name: Copy pre-built icons and splash
         run: |
           cp -R resources/ios/AppIcon.appiconset ios/App/App/Assets.xcassets/
           cp -R resources/ios/Splash.imageset ios/App/App/Assets.xcassets/
 
-      - name: Sync Capacitor (generates Podfile + runs pod install)
-        run: npx cap sync ios
-
-      - name: Inject Info.plist config (ATS + Display Name + Orientation)
+      - name: Inject Info.plist config
         run: |
           PLIST="ios/App/App/Info.plist"
-          echo "=== Before ==="; cat "$PLIST" 2>/dev/null || true
+          echo "=== Before ==="
+          cat "$PLIST" 2>/dev/null || true
 
-          # 设置 App 显示名称
-          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName 博学者" "$PLIST"
-          /usr/libexec/PlistBuddy -c "Set :CFBundleName 博学者" "$PLIST"
+          # Display name
+          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName Boxuezhe" "$PLIST"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleName Boxuezhe" "$PLIST"
 
-          # 配置 ATS 绕过 124.222.199.117 明文 HTTP
+          # ATS bypass for 124.222.199.117
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity dict" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains dict" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains:124.222.199.117 dict" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains:124.222.199.117:NSExceptionAllowsInsecureHTTPLoads bool true" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains:124.222.199.117:NSIncludesSubdomains bool true" "$PLIST" 2>/dev/null || true
 
-          # 锁定竖屏（删除其他方向）
+          # Lock portrait
           /usr/libexec/PlistBuddy -c "Delete :UISupportedInterfaceOrientations" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations array" "$PLIST"
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations:0 string UIInterfaceOrientationPortrait" "$PLIST"
 
-          # iPad 方向也锁定
           /usr/libexec/PlistBuddy -c "Delete :UISupportedInterfaceOrientations~ipad" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations~ipad array" "$PLIST"
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations~ipad:0 string UIInterfaceOrientationPortrait" "$PLIST"
 
-          echo "=== After ==="; cat "$PLIST"
+          echo "=== After ==="
+          cat "$PLIST"
 
       - name: Configure code signing (optional)
         if: ${{ vars.IOS_CODE_SIGNING == 'true' }}
@@ -125,11 +123,10 @@ jobs:
             -exportPath $RUNNER_TEMP/ipa \
             -exportOptionsPlist exportOptions.plist
 
-      - name: Build unsigned IPA (install via AltStore / Sideloadly)
+      - name: Build unsigned IPA (AltStore / Sideloadly)
         if: ${{ vars.IOS_CODE_SIGNING != 'true' }}
         run: |
           cd ios/App
-          # 用通用 iOS SDK 编译（不是 iphonesimulator，才能装到真机）
           xcodebuild archive \
             -scheme App \
             -configuration Release \
@@ -138,7 +135,6 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO
 
-          # 手动打包成 .ipa 文件
           mkdir -p $RUNNER_TEMP/ipa/Payload
           cp -R $RUNNER_TEMP/App.xcarchive/Products/Applications/App.app $RUNNER_TEMP/ipa/Payload/
           cd $RUNNER_TEMP/ipa
