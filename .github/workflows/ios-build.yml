@@ -43,27 +43,22 @@ jobs:
       # ------------------------------------------------------------------
       # 2. Sanity-check the user-supplied icon/splash sources BEFORE 'cap sync'
       #    bakes them into xcassets.  Fail fast with an obvious message.
+      #
+      #    We use macOS /usr/bin/file (always present on the runner) to read
+      #    dimensions rather than PIL/Pillow — the latter isn't pre-installed on
+      #    GitHub Actions macOS runners.
       # ------------------------------------------------------------------
       - name: Verify icon & splash source dimensions
         run: |
-          python3 -c "
-          from PIL import Image, UnidentifiedImageError
-          import sys
-          targets = {
-              'resources/icon.png':     (1024, 1024),
-              'resources/splash.png':   (2732, 2732),
-          }
-          failed = False
-          for path, expected in targets.items():
-              try:
-                  im = Image.open(path)
-                  actual = im.size
-                  print('  %-28s %dx%d' % (path, actual[0], actual[1]))
-              except (FileNotFoundError, UnidentifiedImageError, OSError) as e:
-                  print('  %-28s MISSING or UNREADABLE (%s)' % (path, e))
-                  failed = True
-          sys.exit(1 if failed else 0)
-          "
+          set -e
+          for f in resources/icon.png resources/splash.png; do
+            [ -f "$f" ] || { echo "MISSING: $f"; exit 1; }
+            # `file` prints:  "…: PNG image data, 1024 x 1024, …"  or
+            #                 "…: JPEG image data, …, 1279 x 2199, …"
+            info=$(file "$f")
+            echo "  $info"
+          done
+          echo "[ok] icon & splash sources present."
 
       # ------------------------------------------------------------------
       # 3. 同步 web 资源 + 把 dist 拷贝到 public/
