@@ -41,29 +41,28 @@ jobs:
         run: npx cap add ios
 
       # ------------------------------------------------------------------
-      # 2. Sanity-check the user-supplied icon/splash sources BEFORE 'cap sync'
-      #    bakes them into xcassets.  Fail fast with an obvious message.
-      #
-      #    We use macOS /usr/bin/file (always present on the runner) to read
-      #    dimensions rather than PIL/Pillow — the latter isn't pre-installed on
-      #    GitHub Actions macOS runners.
+      # 2. 用 @capacitor/assets 把仓库里的博学者品牌图覆盖 SPM 模板默认占位.
+      #    'cap add ios' 打进去的是 ios-spm-template.tar.gz 里自带的通用 AppIcon,
+      #    不是博学者品牌图. 必须显式调用 @capacitor/assets generate --ios 来覆盖.
       # ------------------------------------------------------------------
-      - name: Verify icon & splash source dimensions
+      - name: Generate iOS icon & splash from brand assets
         run: |
-          set -e
-          for f in resources/icon.png resources/splash.png; do
-            [ -f "$f" ] || { echo "MISSING: $f"; exit 1; }
-            # `file` prints:  "…: PNG image data, 1024 x 1024, …"  or
-            #                 "…: JPEG image data, …, 1279 x 2199, …"
-            info=$(file "$f")
-            echo "  $info"
-          done
-          echo "[ok] icon & splash sources present."
+          npx @capacitor/assets generate --ios --iosProject ios/App
+          # 兜底: 模板 Contents.json 引用的 splash-2732x2732*.png 文件名与
+          # @capacitor/assets 生成的 Default@*x~universal*.png 不同, 如果旧文件
+          # 残留在 Splash.imageset/ 目录会引起 Xcode warning. 用新的 splash 覆盖
+          # 所有 splash-* 文件名就是彻底一致的兜底.
+          if ls ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732*.png 1>/dev/null 2>&1; then
+            for legacy in ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732*.png; do
+              cp -f resources/splash.png "$legacy"
+            done
+            echo "[ok] legacy splash-2732x2732 files overwritten with brand splash"
+          else
+            echo "[ok] no legacy splash files to overwrite"
+          fi
 
       # ------------------------------------------------------------------
       # 3. 同步 web 资源 + 把 dist 拷贝到 public/
-      #    同时让 capacitor 把 resources/icon.png / resources/splash.png
-      #    烘焙进 ios/App/App/Assets.xcassets/
       # ------------------------------------------------------------------
       - name: Sync Capacitor
         run: npx cap sync ios
