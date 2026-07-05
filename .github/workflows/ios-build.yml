@@ -34,17 +34,130 @@ jobs:
       - name: Build web assets
         run: npm run build
 
+      # ------------------------------------------------------------------
+      # 1. 生成 iOS 工程 (每次从头)
+      # ------------------------------------------------------------------
       - name: Add iOS platform (fresh)
         run: npx cap add ios
 
-      - name: Copy app icons & splash
-        run: |
-          cp -R resources/ios/AppIcon.appiconset ios/App/App/Assets.xcassets/
-          cp -R resources/ios/Splash.imageset ios/App/App/Assets.xcassets/
-
-      - name: Sync Capacitor + install pods
+      # ------------------------------------------------------------------
+      # 2. 同步 web 资源 + 把 dist 拷贝到 public/
+      # ------------------------------------------------------------------
+      - name: Sync Capacitor
         run: npx cap sync ios
 
+      # ------------------------------------------------------------------
+      # 3. 生成 Shared Scheme —— 这是 xcodebuild 的刚性要求
+      #    Capacitor 8 + SPM 的模板只把 scheme 放在 xcuserdata/ 下,
+      #    CI runner 上看不到, 必须手动创建 xcshareddata/xcschemes/
+      # ------------------------------------------------------------------
+      - name: Create shared scheme
+        run: |
+          SCHEMES_DIR="ios/App/App.xcodeproj/xcshareddata/xcschemes"
+          mkdir -p "$SCHEMES_DIR"
+          cat > "$SCHEMES_DIR/App.xcscheme" <<'XCSHEME_EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <Scheme
+             LastUpgradeVersion = "1600"
+             version = "1.7">
+             <BuildAction
+                parallelizeBuildables = "YES"
+                buildImplicitDependencies = "YES">
+                <BuildActionEntries>
+                   <BuildActionEntry
+                      buildForAnalyzing = "YES"
+                      buildForArchiving = "YES"
+                      buildForProfiling = "YES"
+                      buildForRunning = "YES"
+                      buildForTesting = "YES">
+                      <BuildableReference
+                         BuildableIdentifier = "primary"
+                         BlueprintIdentifier = "504EC3041FED79650016851F"
+                         BuildableName = "App.app"
+                         BlueprintName = "App"
+                         ReferencedContainer = "container:App.xcodeproj">
+                      </BuildableReference>
+                   </BuildActionEntry>
+                </BuildActionEntries>
+             </BuildAction>
+             <TestAction
+                buildConfiguration = "Debug"
+                selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+                selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+                shouldUseLaunchSchemeArgsEnv = "YES"
+                shouldAutocreateTestPlan = "YES">
+                <Testables>
+                </Testables>
+             </TestAction>
+             <LaunchAction
+                buildConfiguration = "Debug"
+                selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+                selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+                launchStyle = "0"
+                useCustomWorkingDirectory = "NO"
+                ignoresPersistentStateOnLaunch = "NO"
+                debugDocumentVersioning = "YES"
+                debugServiceExtension = "internal"
+                allowLocationSimulation = "YES">
+                <BuildableProductRunnable
+                   runnableDebuggingMode = "0">
+                   <BuildableReference
+                      BuildableIdentifier = "primary"
+                      BlueprintIdentifier = "504EC3041FED79650016851F"
+                      BuildableName = "App.app"
+                      BlueprintName = "App"
+                      ReferencedContainer = "container:App.xcodeproj">
+                   </BuildableReference>
+                </BuildableProductRunnable>
+             </LaunchAction>
+             <ProfileAction
+                buildConfiguration = "Release"
+                shouldUseLaunchSchemeArgsEnv = "YES"
+                savedToolIdentifier = ""
+                useCustomWorkingDirectory = "NO"
+                debugDocumentVersioning = "YES">
+                <BuildableProductRunnable
+                   runnableDebuggingMode = "0">
+                   <BuildableReference
+                      BuildableIdentifier = "primary"
+                      BlueprintIdentifier = "504EC3041FED79650016851F"
+                      BuildableName = "App.app"
+                      BlueprintName = "App"
+                      ReferencedContainer = "container:App.xcodeproj">
+                   </BuildableReference>
+                </BuildableProductRunnable>
+             </ProfileAction>
+             <AnalyzeAction
+                buildConfiguration = "Debug">
+             </AnalyzeAction>
+             <ArchiveAction
+                buildConfiguration = "Release"
+                revealArchiveInOrganizer = "YES">
+             </ArchiveAction>
+          </Scheme>
+          XCSHEME_EOF
+
+          echo "--- Scheme file created ---"
+          ls -la "$SCHEMES_DIR/"
+          echo "--- Scheme list reported by xcodebuild ---"
+          xcodebuild -project ios/App/App.xcodeproj -list
+
+      # ------------------------------------------------------------------
+      # 4. 预拉取 SPM 依赖 (capacitor-swift-pm + 本地 capacitor-splash-screen)
+      #    GitHub Actions 默认没有 SSH key 访问 github.com, 必须走 https
+      #    所以显式传递 -scmProvider system 让 xcodebuild 自己 git clone
+      # ------------------------------------------------------------------
+      - name: Resolve SPM packages
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project ios/App/App.xcodeproj \
+            -scheme App \
+            -scmProvider system \
+            -derivedDataPath ios/App/DerivedData
+
+      # ------------------------------------------------------------------
+      # 5. Info.plist 定制（在 archive 之前, 这些值会烘焙进 .app）
+      # ------------------------------------------------------------------
       - name: Update Info.plist
         run: |
           PLIST=ios/App/App/Info.plist
@@ -62,24 +175,40 @@ jobs:
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations~ipad array" "$PLIST"
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations~ipad:0 string UIInterfaceOrientationPortrait" "$PLIST"
 
-      - name: Archive (build) unsigned IPA
+      # ------------------------------------------------------------------
+      # 6. Archive —— unsigned
+      # ------------------------------------------------------------------
+      - name: Archive (build) unsigned
         run: |
-          cd ios/App
           xcodebuild archive \
+            -project ios/App/App.xcodeproj \
             -scheme App \
             -configuration Release \
             -destination "generic/platform=iOS" \
-            -archivePath $RUNNER_TEMP/App.xcarchive \
+            -archivePath "$RUNNER_TEMP/App.xcarchive" \
+            -scmProvider system \
+            -derivedDataPath ios/App/DerivedData \
+            CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO
 
+      # ------------------------------------------------------------------
+      # 7. 打 .ipa
+      # ------------------------------------------------------------------
       - name: Package .ipa
         run: |
-          mkdir -p $RUNNER_TEMP/ipa/Payload
-          cp -R $RUNNER_TEMP/App.xcarchive/Products/Applications/App.app $RUNNER_TEMP/ipa/Payload/
-          cd $RUNNER_TEMP/ipa
+          mkdir -p "$RUNNER_TEMP/ipa/Payload"
+          cp -R "$RUNNER_TEMP/App.xcarchive/Products/Applications/App.app" \
+                "$RUNNER_TEMP/ipa/Payload/"
+          cd "$RUNNER_TEMP/ipa"
           zip -r boschue-unsigned.ipa Payload
+          echo "--- IPA contents ---"
+          unzip -l boschue-unsigned.ipa | head -30
+          echo "--- Done ---"
 
+      # ------------------------------------------------------------------
+      # 8. 上传
+      # ------------------------------------------------------------------
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
