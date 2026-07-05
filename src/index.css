@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -7,18 +7,19 @@
   body {
     margin: 0;
     padding: 0;
-    background: #f0f4f6;
+    background: #E8F5F9;
     color: #1f1f1f;
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     height: 100%;
+    width: 100%;
   }
 
-  body {
-    min-height: 100vh;
+  #root {
+    height: 100%;
+    width: 100%;
   }
 
   * {
@@ -126,6 +127,7 @@
 /* iOS Safe Area Utilities */
 .safe-top {
   padding-top: env(safe-area-inset-top);
+  background: #E8F5F9;
 }
 
 .safe-bottom {

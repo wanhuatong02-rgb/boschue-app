@@ -38,6 +38,8 @@ export default function KnowledgeGraphPage() {
 
   const activeSubject = activeId ? getSubjectConfig(activeId) : undefined;
   const nodes = (activeId && KNOWLEDGE_GRAPH_DATA[activeId]) || [];
+  const getUnlockedKnowledgeNodeIds = useProgressStore((s) => s.getUnlockedKnowledgeNodeIds);
+  const unlockedIds = activeId ? getUnlockedKnowledgeNodeIds() : [];
 
   useEffect(() => {
     setSearch('');
@@ -47,12 +49,19 @@ export default function KnowledgeGraphPage() {
 
   const filtered = useMemo(() => {
     const kw = search.trim().toLowerCase();
-    return nodes.filter((n) => {
+    const matched = nodes.filter((n) => {
       if (tab !== 'all' && n.category !== tab) return false;
       if (!kw) return true;
       return n.name.toLowerCase().includes(kw) || n.definition.toLowerCase().includes(kw) || n.id.toLowerCase().includes(kw);
     });
-  }, [nodes, search, tab]);
+    // 已解锁的节点优先显示在最前面
+    return [...matched].sort((a, b) => {
+      const aUnlocked = unlockedIds.includes(a.id);
+      const bUnlocked = unlockedIds.includes(b.id);
+      if (aUnlocked === bUnlocked) return 0;
+      return aUnlocked ? -1 : 1;
+    });
+  }, [nodes, search, tab, unlockedIds]);
 
   const color = activeSubject?.color ?? '#7AAEC0';
 

@@ -6,7 +6,15 @@ export default defineConfig({
   base: './',
   plugins: [react()],
   build: {
-    sourcemap: true,
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-router-dom'],
+          lucide: ['lucide-react'],
+        },
+      },
+    },
   },
   resolve: {
     alias: {

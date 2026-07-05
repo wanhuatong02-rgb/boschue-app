@@ -61,12 +61,32 @@ export default function MePage() {
   const handleAvatarFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (file.size > 2 * 1024 * 1024) {
-      window.alert('图片大小不能超过 2MB');
+    if (file.size > 5 * 1024 * 1024) {
+      window.alert('图片大小不能超过 5MB');
       return;
     }
+    // 压缩图片为 256x256 JPEG 缩略图，避免数 MB base64 阻塞启动
     const reader = new FileReader();
-    reader.onload = () => { setAvatarUrl(reader.result as string); };
+    reader.onload = () => {
+      const img = new window.Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const SIZE = 256;
+        canvas.width = SIZE;
+        canvas.height = SIZE;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          // 居中裁切为正方形
+          const min = Math.min(img.width, img.height);
+          const sx = (img.width - min) / 2;
+          const sy = (img.height - min) / 2;
+          ctx.drawImage(img, sx, sy, min, min, 0, 0, SIZE, SIZE);
+        }
+        const compressed = canvas.toDataURL('image/jpeg', 0.8);
+        setAvatarUrl(compressed);
+      };
+      img.src = reader.result as string;
+    };
     reader.readAsDataURL(file);
     e.target.value = '';
   };
@@ -115,6 +135,55 @@ export default function MePage() {
           </div>
         </div>
       </header>
+
+      <section className="px-5 mb-5">
+        <div className="flex items-center justify-between mb-2.5">
+          <h3 className="text-[14px] font-semibold text-ink flex items-center gap-1.5">
+            <Award size={15} /> 精选成就
+          </h3>
+          <button onClick={() => navigate(to.achievements())} className="text-[11px] text-ink-light hover:text-accent">查看全部 <ChevronRight size={12} className="inline" /></button>
+        </div>
+        <Card padding="md">
+          {/* 最近解锁的成就 */}
+          {(() => {
+            const unlockedAchievements = achievements.filter((a) => a.unlocked && a.unlockedAt)
+              .sort((a, b) => (b.unlockedAt ?? 0) - (a.unlockedAt ?? 0));
+            const recentFour = unlockedAchievements.slice(0, 4);
+
+            if (recentFour.length === 0) {
+              // 无已解锁成就，显示提示
+              return (
+                <div className="text-center py-4">
+                  <Award size={32} color="#CCC" className="mx-auto mb-2" />
+                  <div className="text-[13px] text-ink-light">完成学习任务，解锁成就徽章</div>
+                </div>
+              );
+            }
+
+            return (
+              <div className="flex gap-3 overflow-x-auto pb-1">
+                {recentFour.map((a) => {
+                  const IconComp = (Icons as unknown as Record<string, Icons.LucideIcon>)[a.icon] ?? Icons.Award;
+                  return (
+                    <div key={a.id} className="flex-shrink-0 text-center">
+                      <div
+                        className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-1.5"
+                        style={{
+                          backgroundColor: `${a.color}1A`,
+                          color: a.color,
+                        }}
+                      >
+                        <IconComp size={24} strokeWidth={2} />
+                      </div>
+                      <div className="text-[11px] font-medium text-ink leading-tight">{a.title}</div>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })()}
+        </Card>
+      </section>
 
       <section className="px-5 mb-5">
         <div className="grid grid-cols-3 gap-2.5">
@@ -229,55 +298,6 @@ export default function MePage() {
           </Card>
         </section>
       )}
-
-      <section className="px-5 pb-4">
-        <div className="flex items-center justify-between mb-2.5">
-          <h3 className="text-[14px] font-semibold text-ink flex items-center gap-1.5">
-            <Award size={15} /> 精选成就
-          </h3>
-          <button onClick={() => navigate(to.achievements())} className="text-[11px] text-ink-light hover:text-accent">查看全部 <ChevronRight size={12} className="inline" /></button>
-        </div>
-        <Card padding="md">
-          {/* 最近解锁的成就 */}
-          {(() => {
-            const unlockedAchievements = achievements.filter((a) => a.unlocked && a.unlockedAt)
-              .sort((a, b) => (b.unlockedAt ?? 0) - (a.unlockedAt ?? 0));
-            const recentFour = unlockedAchievements.slice(0, 4);
-
-            if (recentFour.length === 0) {
-              // 无已解锁成就，显示提示
-              return (
-                <div className="text-center py-4">
-                  <Award size={32} color="#CCC" className="mx-auto mb-2" />
-                  <div className="text-[13px] text-ink-light">完成学习任务，解锁成就徽章</div>
-                </div>
-              );
-            }
-
-            return (
-              <div className="flex gap-3 overflow-x-auto pb-1">
-                {recentFour.map((a) => {
-                  const IconComp = (Icons as unknown as Record<string, Icons.LucideIcon>)[a.icon] ?? Icons.Award;
-                  return (
-                    <div key={a.id} className="flex-shrink-0 text-center">
-                      <div
-                        className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-1.5"
-                        style={{
-                          backgroundColor: `${a.color}1A`,
-                          color: a.color,
-                        }}
-                      >
-                        <IconComp size={24} strokeWidth={2} />
-                      </div>
-                      <div className="text-[11px] font-medium text-ink leading-tight">{a.title}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })()}
-        </Card>
-      </section>
 
       {activated && (
         <section className="px-5 pb-8 pt-2">

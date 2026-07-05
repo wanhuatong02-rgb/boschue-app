@@ -51,6 +51,17 @@ export default function AchievementsPage() {
         return a.type === activeTab;
       });
 
+  // 已解锁的成就优先，同状态下按 unlockAt 倒序（最近解锁的在前）
+  const sortedAchievements = [...filteredAchievements].sort((a, b) => {
+    if (a.unlocked === b.unlocked) {
+      if (a.unlocked && a.unlockedAt && b.unlockedAt) {
+        return b.unlockedAt - a.unlockedAt;
+      }
+      return 0;
+    }
+    return a.unlocked ? -1 : 1;
+  });
+
   const unlockedCount = achievements.filter((a) => a.unlocked).length;
 
   return (
@@ -108,7 +119,7 @@ export default function AchievementsPage() {
 
         {/* 成就列表 */}
         <div className="space-y-3">
-          {filteredAchievements.map((achievement) => {
+          {sortedAchievements.map((achievement) => {
             const IconComp = (Icons as unknown as Record<string, Icons.LucideIcon>)[achievement.icon] ?? Icons.Award;
             return (
               <Card
@@ -155,7 +166,7 @@ export default function AchievementsPage() {
             );
           })}
 
-          {filteredAchievements.length === 0 && (
+          {sortedAchievements.length === 0 && (
             <Card padding="lg" className="text-center">
               <Compass size={32} color="#CCC" className="mx-auto mb-2" />
               <div className="text-[14px] text-ink-secondary">该分类暂无成就</div>

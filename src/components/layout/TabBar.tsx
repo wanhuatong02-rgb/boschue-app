@@ -1,15 +1,16 @@
-import { NavLink } from 'react-router-dom';
+﻿import { NavLink, useLocation } from 'react-router-dom';
 import { Sparkles, User } from 'lucide-react';
 
 const tabs = [
-  { to: '/', label: 'TODAY', icon: Sparkles },
+  { to: '/today', label: 'TODAY', icon: Sparkles },
   { to: '/me', label: 'ME', icon: User },
 ];
 
 export default function TabBar() {
+  const location = useLocation();
   return (
     <nav
-      className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-mobile bg-white/95 backdrop-blur-md border-t border-accent/10"
+      className="fixed bottom-0 inset-x-0 w-full bg-white/95 backdrop-blur-md border-t border-accent/10"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       <div className="flex justify-around items-center h-16 px-4">
@@ -17,7 +18,7 @@ export default function TabBar() {
           <NavLink
             key={to}
             to={to}
-            end={to === '/'}
+            end={to === '/today'}
             className={({ isActive }) =>
               [
                 'flex flex-col items-center justify-center gap-0.5 min-w-[44px] min-h-[44px] px-4 py-1.5 rounded-pill transition-colors',

@@ -83,17 +83,14 @@ export default function QuizResultPage() {
           markLessonCompleted(quizSession.refId);
         }
         updateStreak();
-        checkAndUnlockAchievements();
         navigate('/', { replace: true });
       } else if (quizSession.type === 'chapter-quiz') {
         recordChapterQuizResult(quizSession.refId, result.accuracy);
         updateStreak();
-        checkAndUnlockAchievements();
         navigate(`/chapter-result/${quizSession.refId}`, { replace: true });
       } else if (quizSession.type === 'final-quiz') {
         recordFinalQuizResult(quizSession.refId, result.accuracy);
         updateStreak();
-        checkAndUnlockAchievements();
         navigate(`/chapter-result/final-${quizSession.refId}`, { replace: true });
       }
     } else {

@@ -1,33 +1,30 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Award } from 'lucide-react';
-import type { Achievement } from '@/types';
+import { useProgressStore } from '@/store/progressStore';
 
-interface AchievementToastProps {
-  achievements: Achievement[];
-  onDismiss: () => void;
-}
-
-export default function AchievementToast({ achievements, onDismiss }: AchievementToastProps) {
+export default function AchievementToast() {
   const navigate = useNavigate();
+  const lastUnlocked = useProgressStore((s) => s.lastUnlockedAchievements);
+  const clearLastUnlocked = useProgressStore((s) => s.clearLastUnlocked);
 
   useEffect(() => {
-    if (achievements.length === 0) return;
-    const t = setTimeout(onDismiss, 5000);
+    if (lastUnlocked.length === 0) return;
+    const t = setTimeout(clearLastUnlocked, 5000);
     return () => clearTimeout(t);
-  }, [achievements, onDismiss]);
+  }, [lastUnlocked, clearLastUnlocked]);
 
-  if (achievements.length === 0) return null;
+  if (lastUnlocked.length === 0) return null;
 
   // 取第一个成就作为主要显示
-  const primaryAchievement = achievements[0];
+  const primaryAchievement = lastUnlocked[0];
 
   return (
     <div
       className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-mobile animate-slide-down"
       onClick={() => {
         navigate('/me');
-        onDismiss();
+        clearLastUnlocked();
       }}
     >
       <div className="bg-card rounded-card shadow-card-hover p-3.5 flex items-center gap-3 border border-accent/20">

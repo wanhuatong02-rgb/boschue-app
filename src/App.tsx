@@ -13,6 +13,7 @@ import KnowledgeGraphPage from '@/pages/KnowledgeGraphPage';
 import ReviewPage from '@/pages/ReviewPage';
 import AchievementsPage from '@/pages/AchievementsPage';
 import KnowledgeNodeUnlockToast from '@/components/knowledge/KnowledgeNodeUnlockToast';
+import AchievementToast from '@/components/achievement/AchievementToast';
 
 function AppRoutes() {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ function AppRoutes() {
         <Route path="*" element={<Navigate to={ROUTES.TODAY} replace />} />
       </Routes>
       <KnowledgeNodeUnlockToast onViewKnowledgeGraph={handleViewKnowledgeGraph} />
+      <AchievementToast />
     </>
   );
 }
