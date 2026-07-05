@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
+import { Capacitor } from '@capacitor/core';
 import TabBar from './TabBar';
 
 interface AppLayoutProps {
@@ -7,11 +8,23 @@ interface AppLayoutProps {
 }
 
 export default function AppLayout({ children, showTabBar = true }: AppLayoutProps) {
+  const isNative = useMemo(() => {
+    return Capacitor.isNativePlatform();
+  }, []);
+
+  const shellClass = isNative
+    ? 'relative w-full h-screen flex flex-col overflow-hidden'
+    : 'relative w-full max-w-mobile bg-canvas h-screen flex flex-col overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.18)]';
+  const outerClass = isNative
+    ? 'h-screen w-screen'
+    : 'h-screen w-screen flex justify-center';
+  const topSafeClass = isNative ? 'safe-top' : 'safe-top bg-canvas';
+
   return (
-    <div className="h-screen w-screen flex justify-center">
-      <div className="relative w-full max-w-mobile bg-canvas h-screen flex flex-col overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.18)]">
-        <div className="safe-top bg-canvas" />
-        <main className={`flex-1 overflow-y-auto ${showTabBar ? 'pb-20' : ''}`}>{children}</main>
+    <div className={outerClass}>
+      <div className={shellClass}>
+        <div className={topSafeClass} />
+        <main className=`flex-1 overflow-y-auto ${showTabBar ? 'pb-20' : ''}`>{children}</main>
         {showTabBar && <TabBar />}
       </div>
     </div>
