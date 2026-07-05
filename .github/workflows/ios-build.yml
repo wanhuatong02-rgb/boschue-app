@@ -36,15 +36,8 @@ jobs:
       - name: Build web project
         run: npm run build
 
-      - name: Ensure CocoaPods available
-        run: |
-          if ! command -v pod &>/dev/null; then
-            brew install cocoapods
-          fi
-          pod --version
-
       - name: Sync Capacitor iOS
-        run: npx cap sync ios
+        run: npx cap sync ios 2>&1
 
       - name: Copy pre-built icons and splash
         run: |
@@ -120,34 +113,54 @@ jobs:
         run: |
           cd ios/App
 
-          echo "=== Building without archive to avoid codesign requirement ==="
+          echo "=== Xcode and SDK info ==="
+          xcodebuild -version
+          xcrun --show-sdk-path --sdk iphoneos
+
+          echo "=== Project schemes ==="
+          xcodebuild -list
+
+          echo "=== Pods check ==="
+          ls -la ios/../ios/App/Pods 2>/dev/null || echo "No Pods dir"
+
+          echo "=== derivedData build ==="
           xcodebuild build \
-            -project App.xcodeproj \
             -scheme App \
             -configuration Release \
             -destination "generic/platform=iOS" \
             -derivedDataPath $RUNNER_TEMP/dd \
             CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO
+            CODE_SIGNING_REQUIRED=NO \
+            > $RUNNER_TEMP/xcodebuild.log 2>&1 || true
 
-          echo "=== Locating built .app ==="
-          APP_PATH=$(find $RUNNER_TEMP/dd -name "App.app" -type d | head -1)
+          echo "=== xcodebuild exit: $? ==="
+          tail -100 $RUNNER_TEMP/xcodebuild.log
+
+          echo "=== Find App.app ==="
+          APP_PATH=$(find $RUNNER_TEMP/dd -name "App.app" -type d 2>/dev/null | head -1)
           if [ -z "$APP_PATH" ]; then
-            echo "ERROR: App.app not found. Dumping derivedData..."
-            find $RUNNER_TEMP/dd -maxdepth 4 -type d 2>/dev/null
+            echo "ERROR: App.app not found. Full log:"
+            cat $RUNNER_TEMP/xcodebuild.log
             exit 1
           fi
           echo "Found app at: $APP_PATH"
 
           mkdir -p $RUNNER_TEMP/ipa/Payload
           cp -R "$APP_PATH" $RUNNER_TEMP/ipa/Payload/App.app
-
           cd $RUNNER_TEMP/ipa
           zip -r boschue-unsigned.ipa Payload
           ls -la
-          echo "=== IPA built successfully ==="
+
+      - name: Upload xcodebuild log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcodebuild-log
+          path: ${{ runner.temp }}/xcodebuild.log
+          retention-days: 1
 
       - name: Upload build artifact
+        if: ${{ hashFiles(format('{0}/ipa/*.ipa', runner.temp)) != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: boschue-ios
