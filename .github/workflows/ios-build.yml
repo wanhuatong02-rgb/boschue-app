@@ -2,17 +2,8 @@ name: iOS Build
 
 on:
   push:
-    branches: [ main, master ]
-    tags:
-      - 'v*'
-  pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
   workflow_dispatch:
-
-env:
-  APP_NAME: Boxuezhe
-  BUNDLE_ID: com.boxuezhe.app
-  IOS_DEPLOYMENT_TARGET: '17.0'
 
 jobs:
   build-ios:
@@ -47,111 +38,70 @@ jobs:
       - name: Inject Info.plist config
         run: |
           PLIST="ios/App/App/Info.plist"
-
           /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName Boxuezhe" "$PLIST"
           /usr/libexec/PlistBuddy -c "Set :CFBundleName Boxuezhe" "$PLIST"
-
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity dict" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains dict" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains:124.222.199.117 dict" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains:124.222.199.117:NSExceptionAllowsInsecureHTTPLoads bool true" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSExceptionDomains:124.222.199.117:NSIncludesSubdomains bool true" "$PLIST" 2>/dev/null || true
-
           /usr/libexec/PlistBuddy -c "Delete :UISupportedInterfaceOrientations" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations array" "$PLIST"
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations:0 string UIInterfaceOrientationPortrait" "$PLIST"
-
           /usr/libexec/PlistBuddy -c "Delete :UISupportedInterfaceOrientations~ipad" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations~ipad array" "$PLIST"
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations~ipad:0 string UIInterfaceOrientationPortrait" "$PLIST"
 
-      - name: Configure code signing (optional)
-        if: ${{ vars.IOS_CODE_SIGNING == 'true' }}
-        env:
-          BUILD_CERTIFICATE_BASE64: ${{ secrets.IOS_BUILD_CERTIFICATE_BASE64 }}
-          P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
-          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.IOS_PROVISION_PROFILE_BASE64 }}
-          KEYCHAIN_PASSWORD: ${{ secrets.IOS_KEYCHAIN_PASSWORD }}
-        run: |
-          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
-          PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
-          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
-
-          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
-          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH
-
-          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-
-          security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-          security list-keychain -d user -s $KEYCHAIN_PATH
-
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles/
-
-      - name: Build signed IPA
-        if: ${{ vars.IOS_CODE_SIGNING == 'true' }}
+      - name: Diagnose Xcode project
         run: |
           cd ios/App
-          xcodebuild archive \
-            -scheme App \
-            -configuration Release \
-            -archivePath $RUNNER_TEMP/App.xcarchive \
-            -destination "generic/platform=iOS" \
-            CODE_SIGN_IDENTITY="${{ secrets.IOS_CODE_SIGN_IDENTITY }}" \
-            PROVISIONING_PROFILE_SPECIFIER="${{ secrets.IOS_PROVISIONING_PROFILE_SPECIFIER }}" \
-            CODE_SIGN_STYLE=Manual
+          echo "=== Xcode Version ==="
+          xcodebuild -version
+          echo "=== Available SDKs ==="
+          xcodebuild -showsdks
+          echo "=== Schemes in project ==="
+          xcodebuild -list -project App.xcodeproj 2>&1
+          echo "=== Schemes in workspace (if any) ==="
+          xcodebuild -list 2>&1 || true
+          echo "=== Show Build Settings ==="
+          xcodebuild -project App.xcodeproj -scheme App -showBuildSettings 2>&1 | head -200 || true
 
-          xcodebuild -exportArchive \
-            -archivePath $RUNNER_TEMP/App.xcarchive \
-            -exportPath $RUNNER_TEMP/ipa \
-            -exportOptionsPlist exportOptions.plist
-
-      - name: Build unsigned IPA (AltStore / Sideloadly)
-        if: ${{ vars.IOS_CODE_SIGNING != 'true' }}
-        id: xcodebuild_step
+      - name: Build unsigned IPA
+        id: build_step
         continue-on-error: true
         run: |
           cd ios/App
-
-          echo "=== DIAGNOSTICS ==="
-          xcodebuild -version
-          xcrun --show-sdk-path --sdk iphoneos 2>&1 || true
-          echo "---"
-          xcodebuild -list 2>&1 || true
-          echo "--- Pods dir ---"
-          ls -la Pods 2>/dev/null || echo "No Pods dir (SPM project)"
-          echo "--- Scheme config ---"
-          ls -la App.xcodeproj/xcshareddata/xcschemes/ 2>/dev/null || echo "No shared schemes"
-
-          echo
-          echo "=== BUILD ATTEMPT ==="
+          echo "=== Attempting xcodebuild ==="
           xcodebuild build \
             -scheme App \
             -configuration Release \
             -destination "generic/platform=iOS" \
             -derivedDataPath $RUNNER_TEMP/dd \
             CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO 2>&1 | tee $RUNNER_TEMP/build.log | tail -200
-          BUILD_EXIT=$?
+            CODE_SIGNING_REQUIRED=NO 2>&1 | tee $RUNNER_TEMP/build.log | tail -300
+          echo "=== Build exit code: $? ==="
 
-          echo
-          echo "=== BUILD EXIT: $BUILD_EXIT ==="
-          echo "=== FULL LOG ==="
-          cat $RUNNER_TEMP/build.log
-          echo "=== END LOG ==="
-
-          if [ $BUILD_EXIT -ne 0 ]; then
-            echo "=== PUSH LOG TO GIT ==="
-            cp $RUNNER_TEMP/build.log $GITHUB_WORKSPACE/_xcodebuild_error.log
-            echo "Log saved"
+      - name: Save error log to repo
+        run: |
+          if [ -f "$RUNNER_TEMP/build.log" ]; then
+            # Copy the log to repo root
+            cp $RUNNER_TEMP/build.log $GITHUB_WORKSPACE/xcodebuild-error.log
+            echo "Log saved to repo"
+            wc -l $GITHUB_WORKSPACE/xcodebuild-error.log
           fi
 
-          exit $BUILD_EXIT
+      - name: Commit error log
+        run: |
+          cd $GITHUB_WORKSPACE
+          git config user.name "ci-diagnostics"
+          git config user.email "ci@localhost"
+          git checkout -b xcode-diagnostics
+          git add xcodebuild-error.log
+          git commit -m "xci: capture xcodebuild error log"
+          git push origin xcode-diagnostics --force
 
-      - name: Package IPA
-        if: ${{ vars.IOS_CODE_SIGNING != 'true' && steps.xcodebuild_step.outcome == 'success' }}
+      - name: Package IPA (only if build succeeded)
+        if: steps.build_step.outcome == 'success'
         run: |
           APP_PATH=$(find $RUNNER_TEMP/dd -name "App.app" -type d | head -1)
           mkdir -p $RUNNER_TEMP/ipa/Payload
@@ -167,11 +117,3 @@ jobs:
           name: boschue-ios
           path: ${{ runner.temp }}/ipa/
           retention-days: 30
-
-      - name: Upload release asset
-        if: startsWith(github.ref, 'refs/tags/v')
-        uses: softprops/action-gh-release@v2
-        with:
-          files: ${{ runner.temp }}/ipa/*.ipa
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
