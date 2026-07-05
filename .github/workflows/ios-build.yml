@@ -2,42 +2,52 @@ name: iOS Build
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
+    tags:
+      - 'v*'
+  pull_request:
+    branches: [ main, master ]
   workflow_dispatch:
+
+env:
+  NODE_VERSION: '22'
 
 jobs:
   build-ios:
     name: Build iOS IPA
     runs-on: macos-15
-    timeout-minutes: 30
+    timeout-minutes: 60
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
 
-      - name: Install npm dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: Build web project
+      - name: Build web assets
         run: npm run build
 
-      - name: Sync Capacitor iOS
-        run: npx cap sync ios
+      - name: Add iOS platform (fresh)
+        run: npx cap add ios
 
-      - name: Copy pre-built icons and splash
+      - name: Copy app icons & splash
         run: |
           cp -R resources/ios/AppIcon.appiconset ios/App/App/Assets.xcassets/
           cp -R resources/ios/Splash.imageset ios/App/App/Assets.xcassets/
 
-      - name: Inject Info.plist config
+      - name: Sync Capacitor + install pods
+        run: npx cap sync ios
+
+      - name: Update Info.plist
         run: |
-          PLIST="ios/App/App/Info.plist"
+          PLIST=ios/App/App/Info.plist
           /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName Boxuezhe" "$PLIST"
           /usr/libexec/PlistBuddy -c "Set :CFBundleName Boxuezhe" "$PLIST"
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity dict" "$PLIST" 2>/dev/null || true
@@ -52,66 +62,25 @@ jobs:
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations~ipad array" "$PLIST"
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations~ipad:0 string UIInterfaceOrientationPortrait" "$PLIST"
 
-      - name: Diagnose Xcode project
+      - name: Archive (build) unsigned IPA
         run: |
           cd ios/App
-          echo "=== Xcode Version ==="
-          xcodebuild -version
-          echo "=== Available SDKs ==="
-          xcodebuild -showsdks
-          echo "=== Schemes in project ==="
-          xcodebuild -list -project App.xcodeproj 2>&1
-          echo "=== Schemes in workspace (if any) ==="
-          xcodebuild -list 2>&1 || true
-          echo "=== Show Build Settings ==="
-          xcodebuild -project App.xcodeproj -scheme App -showBuildSettings 2>&1 | head -200 || true
-
-      - name: Build unsigned IPA
-        id: build_step
-        continue-on-error: true
-        run: |
-          cd ios/App
-          echo "=== Attempting xcodebuild ==="
-          xcodebuild build \
+          xcodebuild archive \
             -scheme App \
             -configuration Release \
             -destination "generic/platform=iOS" \
-            -derivedDataPath $RUNNER_TEMP/dd \
+            -archivePath $RUNNER_TEMP/App.xcarchive \
             CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO 2>&1 | tee $RUNNER_TEMP/build.log | tail -300
-          echo "=== Build exit code: $? ==="
+            CODE_SIGNING_REQUIRED=NO
 
-      - name: Save error log to repo
+      - name: Package .ipa
         run: |
-          if [ -f "$RUNNER_TEMP/build.log" ]; then
-            # Copy the log to repo root
-            cp $RUNNER_TEMP/build.log $GITHUB_WORKSPACE/xcodebuild-error.log
-            echo "Log saved to repo"
-            wc -l $GITHUB_WORKSPACE/xcodebuild-error.log
-          fi
-
-      - name: Commit error log
-        run: |
-          cd $GITHUB_WORKSPACE
-          git config user.name "ci-diagnostics"
-          git config user.email "ci@localhost"
-          git checkout -b xcode-diagnostics
-          git add xcodebuild-error.log
-          git commit -m "xci: capture xcodebuild error log"
-          git push origin xcode-diagnostics --force
-
-      - name: Package IPA (only if build succeeded)
-        if: steps.build_step.outcome == 'success'
-        run: |
-          APP_PATH=$(find $RUNNER_TEMP/dd -name "App.app" -type d | head -1)
           mkdir -p $RUNNER_TEMP/ipa/Payload
-          cp -R "$APP_PATH" $RUNNER_TEMP/ipa/Payload/App.app
+          cp -R $RUNNER_TEMP/App.xcarchive/Products/Applications/App.app $RUNNER_TEMP/ipa/Payload/
           cd $RUNNER_TEMP/ipa
           zip -r boschue-unsigned.ipa Payload
-          ls -la
 
-      - name: Upload build artifact
-        if: ${{ hashFiles(format('{0}/ipa/*.ipa', runner.temp)) != '' }}
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: boschue-ios

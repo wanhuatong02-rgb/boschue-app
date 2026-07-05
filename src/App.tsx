@@ -14,6 +14,7 @@ import ReviewPage from '@/pages/ReviewPage';
 import AchievementsPage from '@/pages/AchievementsPage';
 import KnowledgeNodeUnlockToast from '@/components/knowledge/KnowledgeNodeUnlockToast';
 import AchievementToast from '@/components/achievement/AchievementToast';
+import SplashSkipButton from '@/components/SplashSkipButton';
 
 function AppRoutes() {
   const navigate = useNavigate();
@@ -49,8 +50,11 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <ActivationGuard>
-      <AppRoutes />
-    </ActivationGuard>
+    <>
+      <ActivationGuard>
+        <AppRoutes />
+      </ActivationGuard>
+      <SplashSkipButton />
+    </>
   );
 }
