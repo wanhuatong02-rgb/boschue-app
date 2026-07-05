@@ -41,7 +41,34 @@ jobs:
         run: npx cap add ios
 
       # ------------------------------------------------------------------
-      # 2. 同步 web 资源 + 把 dist 拷贝到 public/
+      # 2. Sanity-check the user-supplied icon/splash sources BEFORE 'cap sync'
+      #    bakes them into xcassets.  Fail fast with an obvious message.
+      # ------------------------------------------------------------------
+      - name: Verify icon & splash source dimensions
+        run: |
+          python3 -c "
+          from PIL import Image, UnidentifiedImageError
+          import sys
+          targets = {
+              'resources/icon.png':     (1024, 1024),
+              'resources/splash.png':   (2732, 2732),
+          }
+          failed = False
+          for path, expected in targets.items():
+              try:
+                  im = Image.open(path)
+                  actual = im.size
+                  print('  %-28s %dx%d' % (path, actual[0], actual[1]))
+              except (FileNotFoundError, UnidentifiedImageError, OSError) as e:
+                  print('  %-28s MISSING or UNREADABLE (%s)' % (path, e))
+                  failed = True
+          sys.exit(1 if failed else 0)
+          "
+
+      # ------------------------------------------------------------------
+      # 3. 同步 web 资源 + 把 dist 拷贝到 public/
+      #    同时让 capacitor 把 resources/icon.png / resources/splash.png
+      #    烘焙进 ios/App/App/Assets.xcassets/
       # ------------------------------------------------------------------
       - name: Sync Capacitor
         run: npx cap sync ios
