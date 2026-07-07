@@ -5,7 +5,7 @@ export const S050_QUIZ: Quiz[] = [
   {
     id: 'soc_s050_q001',
     type: 'lesson-quiz',
-    refId: 'S050',
+    refId: 'S-E10',
     subjectId: 'sociology',
 
     question: '数字化时代对社会学提出的主要挑战是什么？',
@@ -23,7 +23,7 @@ export const S050_QUIZ: Quiz[] = [
   {
     id: 'soc_s050_q002',
     type: 'lesson-quiz',
-    refId: 'S050',
+    refId: 'S-E10',
     subjectId: 'sociology',
 
     question: '社会学研究中出现的新兴现象包括哪些？',
@@ -41,7 +41,7 @@ export const S050_QUIZ: Quiz[] = [
   {
     id: 'soc_s050_q003',
     type: 'lesson-quiz',
-    refId: 'S050',
+    refId: 'S-E10',
     subjectId: 'sociology',
 
     question: '社会学的未来发展需要重点关注什么？',
@@ -59,7 +59,7 @@ export const S050_QUIZ: Quiz[] = [
   {
     id: 'soc_s050_q004',
     type: 'lesson-quiz',
-    refId: 'S050',
+    refId: 'S-E10',
     subjectId: 'sociology',
 
     question: '社会学有责任揭示社会不公，为弱势群体发声。',
@@ -75,7 +75,7 @@ export const S050_QUIZ: Quiz[] = [
   {
     id: 'soc_s050_q005',
     type: 'lesson-quiz',
-    refId: 'S050',
+    refId: 'S-E10',
     subjectId: 'sociology',
 
     question: '社会学的社会责任包括哪些方面？',

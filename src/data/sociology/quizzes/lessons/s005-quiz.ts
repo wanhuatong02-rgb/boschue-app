@@ -5,7 +5,7 @@ export const S005_QUIZ: Quiz[] = [
   {
     id: 'soc_s005_q001',
     type: 'lesson-quiz',
-    refId: 'S005',
+    refId: 'S-A05',
     subjectId: 'sociology',
 
     question: '在描述统计中，以下哪个指标代表数据的中心位置？',
@@ -23,7 +23,7 @@ export const S005_QUIZ: Quiz[] = [
   {
     id: 'soc_s005_q002',
     type: 'lesson-quiz',
-    refId: 'S005',
+    refId: 'S-A05',
     subjectId: 'sociology',
 
     question: '推断统计的主要目的是什么？',
@@ -41,7 +41,7 @@ export const S005_QUIZ: Quiz[] = [
   {
     id: 'soc_s005_q003',
     type: 'lesson-quiz',
-    refId: 'S005',
+    refId: 'S-A05',
     subjectId: 'sociology',
 
     question: '哪种图表最适合显示两个变量之间的关系？',
@@ -59,7 +59,7 @@ export const S005_QUIZ: Quiz[] = [
   {
     id: 'soc_s005_q004',
     type: 'lesson-quiz',
-    refId: 'S005',
+    refId: 'S-A05',
     subjectId: 'sociology',
 
     question: '质性数据分析处理非数值数据，如访谈记录、观察笔记等。',
@@ -75,7 +75,7 @@ export const S005_QUIZ: Quiz[] = [
   {
     id: 'soc_s005_q005',
     type: 'lesson-quiz',
-    refId: 'S005',
+    refId: 'S-A05',
     subjectId: 'sociology',
 
     question: '在数据分析中，信度指的是什么？',

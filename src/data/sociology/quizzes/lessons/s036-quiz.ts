@@ -5,7 +5,7 @@ export const S036_QUIZ: Quiz[] = [
   {
     id: 'soc_s036_q001',
     type: 'lesson-quiz',
-    refId: 'S036',
+    refId: 'S-D06',
     subjectId: 'sociology',
 
     question: '社会认同理论解释什么？',
@@ -23,7 +23,7 @@ export const S036_QUIZ: Quiz[] = [
   {
     id: 'soc_s036_q002',
     type: 'lesson-quiz',
-    refId: 'S036',
+    refId: 'S-D06',
     subjectId: 'sociology',
 
     question: '泰菲尔和特纳提出的自我分类理论认为，自我概念包括哪两个方面？',
@@ -41,7 +41,7 @@ export const S036_QUIZ: Quiz[] = [
   {
     id: 'soc_s036_q003',
     type: 'lesson-quiz',
-    refId: 'S036',
+    refId: 'S-D06',
     subjectId: 'sociology',
 
     question: '内群体偏爱是指什么？',
@@ -59,7 +59,7 @@ export const S036_QUIZ: Quiz[] = [
   {
     id: 'soc_s036_q004',
     type: 'lesson-quiz',
-    refId: 'S036',
+    refId: 'S-D06',
     subjectId: 'sociology',
 
     question: '刻板印象是对群体成员的概括性认知，可能准确也可能错误。',
@@ -75,7 +75,7 @@ export const S036_QUIZ: Quiz[] = [
   {
     id: 'soc_s036_q005',
     type: 'lesson-quiz',
-    refId: 'S036',
+    refId: 'S-D06',
     subjectId: 'sociology',
 
     question: '现代社会中，个体认同的特征是什么？',

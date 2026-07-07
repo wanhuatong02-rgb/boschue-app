@@ -5,7 +5,7 @@ export const S003_QUIZ: Quiz[] = [
   {
     id: 'soc_s003_q001',
     type: 'lesson-quiz',
-    refId: 'S003',
+    refId: 'S-A03',
     subjectId: 'sociology',
 
     question: '定量研究和定性研究的主要区别在于什么？',
@@ -23,7 +23,7 @@ export const S003_QUIZ: Quiz[] = [
   {
     id: 'soc_s003_q002',
     type: 'lesson-quiz',
-    refId: 'S003',
+    refId: 'S-A03',
     subjectId: 'sociology',
 
     question: '在研究方法中，概念化指的是什么？',
@@ -41,7 +41,7 @@ export const S003_QUIZ: Quiz[] = [
   {
     id: 'soc_s003_q003',
     type: 'lesson-quiz',
-    refId: 'S003',
+    refId: 'S-A03',
     subjectId: 'sociology',
 
     question: '下列哪种研究设计是在不同时间点收集数据？',
@@ -59,7 +59,7 @@ export const S003_QUIZ: Quiz[] = [
   {
     id: 'soc_s003_q004',
     type: 'lesson-quiz',
-    refId: 'S003',
+    refId: 'S-A03',
     subjectId: 'sociology',
 
     question: '研究伦理中的知情同意要求参与者充分了解研究目的和可能的风险，自愿参与研究。',
@@ -75,7 +75,7 @@ export const S003_QUIZ: Quiz[] = [
   {
     id: 'soc_s003_q005',
     type: 'lesson-quiz',
-    refId: 'S003',
+    refId: 'S-A03',
     subjectId: 'sociology',
 
     question: '信度和效度在研究中分别指的是什么？',

@@ -992,31 +992,38 @@ export const useProgressStore = create<ProgressStore>()(
         achievements: state.achievements,
       }),
       migrate: (persisted, version) => {
-        // v1→v2：清除旧版本中所有进度数据
+        const p = persisted as any;
+        const baseMerge = {
+          ...(p.progress ?? {}),
+          perfectQuizIds: p.progress?.perfectQuizIds ?? [],
+          wrongQuizAnswers: p.progress?.wrongQuizAnswers ?? {},
+          unlockedKnowledgeNodeIds: p.progress?.unlockedKnowledgeNodeIds ?? [],
+        };
+        // v1→v2：清除旧版本中所有进度数据，但保留知识图谱解锁记录
         if (version === 1) {
           return {
-            ...(persisted as any),
-            progress: { lessons: {}, chapters: {} },
+            ...p,
+            progress: { lessons: {}, chapters: {}, ...baseMerge },
           };
         }
-        // v2→v3：全量重置进度，彻底清除脏数据
+        // v2→v3：全量重置进度，彻底清除脏数据，但保留知识图谱解锁记录
         if (version === 2) {
           return {
-            ...(persisted as any),
-            progress: { lessons: {}, chapters: {}, unlockedKnowledgeNodeIds: [] },
+            ...p,
+            progress: { lessons: {}, chapters: {}, ...baseMerge },
           };
         }
-        // v3→v4：添加 unlockedKnowledgeNodeIds 字段
+        // v3→v4：添加 unlockedKnowledgeNodeIds 字段（保留旧数据，不覆盖）
         if (version === 3) {
           return {
-            ...(persisted as any),
+            ...p,
             progress: {
-              ...(persisted as any).progress,
-              unlockedKnowledgeNodeIds: [],
+              ...(p.progress ?? {}),
+              ...baseMerge,
             },
           };
         }
-        return persisted as any;
+        return p;
       },
       merge: (persisted, current) => {
         const p = (persisted ?? {}) as Partial<ProgressStore>;
@@ -1067,6 +1074,9 @@ export const useProgressStore = create<ProgressStore>()(
           progress: {
             lessons: p.progress?.lessons ?? {},
             chapters: mergedChapters,
+            perfectQuizIds: p.progress?.perfectQuizIds ?? [],
+            wrongQuizAnswers: p.progress?.wrongQuizAnswers ?? {},
+            unlockedKnowledgeNodeIds: p.progress?.unlockedKnowledgeNodeIds ?? [],
           },
           streak: p.streak ?? createEmptyStreak(),
           achievements: current.achievements.map((a) => {

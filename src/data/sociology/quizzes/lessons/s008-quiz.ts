@@ -5,7 +5,7 @@ export const S008_QUIZ: Quiz[] = [
   {
     id: 'soc_s008_q001',
     type: 'lesson-quiz',
-    refId: 'S008',
+    refId: 'S-A08',
     subjectId: 'sociology',
 
     question: '社会互动的基本形式不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S008_QUIZ: Quiz[] = [
   {
     id: 'soc_s008_q002',
     type: 'lesson-quiz',
-    refId: 'S008',
+    refId: 'S-A08',
     subjectId: 'sociology',
 
     question: '符号互动论强调什么在互动中的核心作用？',
@@ -41,7 +41,7 @@ export const S008_QUIZ: Quiz[] = [
   {
     id: 'soc_s008_q003',
     type: 'lesson-quiz',
-    refId: 'S008',
+    refId: 'S-A08',
     subjectId: 'sociology',
 
     question: '戈夫曼的拟剧理论将社会互动比作什么？',
@@ -59,7 +59,7 @@ export const S008_QUIZ: Quiz[] = [
   {
     id: 'soc_s008_q004',
     type: 'lesson-quiz',
-    refId: 'S008',
+    refId: 'S-A08',
     subjectId: 'sociology',
 
     question: '面对面互动是最基本的社会互动形式。',
@@ -75,7 +75,7 @@ export const S008_QUIZ: Quiz[] = [
   {
     id: 'soc_s008_q005',
     type: 'lesson-quiz',
-    refId: 'S008',
+    refId: 'S-A08',
     subjectId: 'sociology',
 
     question: '在戈夫曼的拟剧理论中，"前台"指的是什么？',

@@ -5,7 +5,7 @@ export const S006_QUIZ: Quiz[] = [
   {
     id: 'soc_s006_q001',
     type: 'lesson-quiz',
-    refId: 'S006',
+    refId: 'S-A06',
     subjectId: 'sociology',
 
     question: '文化的基本构成要素不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S006_QUIZ: Quiz[] = [
   {
     id: 'soc_s006_q002',
     type: 'lesson-quiz',
-    refId: 'S006',
+    refId: 'S-A06',
     subjectId: 'sociology',
 
     question: '文化相对主义强调什么？',
@@ -41,7 +41,7 @@ export const S006_QUIZ: Quiz[] = [
   {
     id: 'soc_s006_q003',
     type: 'lesson-quiz',
-    refId: 'S006',
+    refId: 'S-A06',
     subjectId: 'sociology',
 
     question: '物质文化与非物质文化的区别是什么？',
@@ -59,7 +59,7 @@ export const S006_QUIZ: Quiz[] = [
   {
     id: 'soc_s006_q004',
     type: 'lesson-quiz',
-    refId: 'S006',
+    refId: 'S-A06',
     subjectId: 'sociology',
 
     question: '文化变迁是文化的固有特性，包括发明、发现和传播三种形式。',
@@ -75,7 +75,7 @@ export const S006_QUIZ: Quiz[] = [
   {
     id: 'soc_s006_q005',
     type: 'lesson-quiz',
-    refId: 'S006',
+    refId: 'S-A06',
     subjectId: 'sociology',
 
     question: '文化多样性与相对主义面临的主要挑战是什么？',

@@ -5,7 +5,7 @@ export const S002_QUIZ: Quiz[] = [
   {
     id: 'soc_s002_q001',
     type: 'lesson-quiz',
-    refId: 'S002',
+    refId: 'S-A02',
     subjectId: 'sociology',
 
     question: '社会学想象力的概念是由哪位学者提出的？',
@@ -23,7 +23,7 @@ export const S002_QUIZ: Quiz[] = [
   {
     id: 'soc_s002_q002',
     type: 'lesson-quiz',
-    refId: 'S002',
+    refId: 'S-A02',
     subjectId: 'sociology',
 
     question: '结构功能主义理论强调社会的哪一方面？',
@@ -41,7 +41,7 @@ export const S002_QUIZ: Quiz[] = [
   {
     id: 'soc_s002_q003',
     type: 'lesson-quiz',
-    refId: 'S002',
+    refId: 'S-A02',
     subjectId: 'sociology',
 
     question: '符号互动论的主要关注点是什么？',
@@ -59,7 +59,7 @@ export const S002_QUIZ: Quiz[] = [
   {
     id: 'soc_s002_q004',
     type: 'lesson-quiz',
-    refId: 'S002',
+    refId: 'S-A02',
     subjectId: 'sociology',
 
     question: '社会学研究仅限于宏观层面，不关注微观层面的社会现象。',
@@ -75,7 +75,7 @@ export const S002_QUIZ: Quiz[] = [
   {
     id: 'soc_s002_q005',
     type: 'lesson-quiz',
-    refId: 'S002',
+    refId: 'S-A02',
     subjectId: 'sociology',
 
     question: '冲突理论的主要代表人物是谁？',

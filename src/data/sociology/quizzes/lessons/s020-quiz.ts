@@ -5,7 +5,7 @@ export const S020_QUIZ: Quiz[] = [
   {
     id: 'soc_s020_q001',
     type: 'lesson-quiz',
-    refId: 'S020',
+    refId: 'S-B10',
     subjectId: 'sociology',
 
     question: '社会规范按强制程度可分为哪三类？',
@@ -23,7 +23,7 @@ export const S020_QUIZ: Quiz[] = [
   {
     id: 'soc_s020_q002',
     type: 'lesson-quiz',
-    refId: 'S020',
+    refId: 'S-B10',
     subjectId: 'sociology',
 
     question: '社会控制机制不包括以下哪种？',
@@ -41,7 +41,7 @@ export const S020_QUIZ: Quiz[] = [
   {
     id: 'soc_s020_q003',
     type: 'lesson-quiz',
-    refId: 'S020',
+    refId: 'S-B10',
     subjectId: 'sociology',
 
     question: '正式控制的特点是什么？',
@@ -59,7 +59,7 @@ export const S020_QUIZ: Quiz[] = [
   {
     id: 'soc_s020_q004',
     type: 'lesson-quiz',
-    refId: 'S020',
+    refId: 'S-B10',
     subjectId: 'sociology',
 
     question: '标签理论认为，越轨不仅是行为本身，更是社会定义的结果。',
@@ -75,7 +75,7 @@ export const S020_QUIZ: Quiz[] = [
   {
     id: 'soc_s020_q005',
     type: 'lesson-quiz',
-    refId: 'S020',
+    refId: 'S-B10',
     subjectId: 'sociology',
 
     question: '越轨行为可能有哪些影响？',

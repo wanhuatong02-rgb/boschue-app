@@ -48,13 +48,24 @@ function AppRoutes() {
   );
 }
 
+import { useEffect } from 'react';
+import { SplashScreen } from '@capacitor/splash-screen';
+
 export default function App() {
+  // 监听原生跳过按钮事件
+  useEffect(() => {
+    const handler = () => {
+      SplashScreen.hide().catch(() => {});
+    };
+    window.addEventListener('splashSkipClicked', handler);
+    return () => window.removeEventListener('splashSkipClicked', handler);
+  }, []);
+
   return (
     <>
       <ActivationGuard>
         <AppRoutes />
       </ActivationGuard>
-      <SplashSkipButton />
     </>
   );
 }

@@ -5,7 +5,7 @@ export const S014_QUIZ: Quiz[] = [
   {
     id: 'soc_s014_q001',
     type: 'lesson-quiz',
-    refId: 'S014',
+    refId: 'S-B04',
     subjectId: 'sociology',
 
     question: '生理性别（sex）与社会性别（gender）的区别是什么？',
@@ -23,7 +23,7 @@ export const S014_QUIZ: Quiz[] = [
   {
     id: 'soc_s014_q002',
     type: 'lesson-quiz',
-    refId: 'S014',
+    refId: 'S-B04',
     subjectId: 'sociology',
 
     question: '传统社会中性别角色分工的特点是什么？',
@@ -41,7 +41,7 @@ export const S014_QUIZ: Quiz[] = [
   {
     id: 'soc_s014_q003',
     type: 'lesson-quiz',
-    refId: 'S014',
+    refId: 'S-B04',
     subjectId: 'sociology',
 
     question: '性别不平等可能体现在哪些方面？',
@@ -59,7 +59,7 @@ export const S014_QUIZ: Quiz[] = [
   {
     id: 'soc_s014_q004',
     type: 'lesson-quiz',
-    refId: 'S014',
+    refId: 'S-B04',
     subjectId: 'sociology',
 
     question: '女性主义社会学批判传统社会学的男性中心视角。',
@@ -75,7 +75,7 @@ export const S014_QUIZ: Quiz[] = [
   {
     id: 'soc_s014_q005',
     type: 'lesson-quiz',
-    refId: 'S014',
+    refId: 'S-B04',
     subjectId: 'sociology',
 
     question: '现代社会中性别角色的变化趋势是什么？',

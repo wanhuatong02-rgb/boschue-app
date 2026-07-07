@@ -5,7 +5,7 @@ export const S018_QUIZ: Quiz[] = [
   {
     id: 'soc_s018_q001',
     type: 'lesson-quiz',
-    refId: 'S018',
+    refId: 'S-B08',
     subjectId: 'sociology',
 
     question: '社会网络分析关注什么？',
@@ -23,7 +23,7 @@ export const S018_QUIZ: Quiz[] = [
   {
     id: 'soc_s018_q002',
     type: 'lesson-quiz',
-    refId: 'S018',
+    refId: 'S-B08',
     subjectId: 'sociology',
 
     question: '格兰诺维特提出的强关系与弱关系理论中，弱关系的作用是什么？',
@@ -41,7 +41,7 @@ export const S018_QUIZ: Quiz[] = [
   {
     id: 'soc_s018_q003',
     type: 'lesson-quiz',
-    refId: 'S018',
+    refId: 'S-B08',
     subjectId: 'sociology',
 
     question: '社会资本理论中，普特南区分了哪两种类型的社会资本？',
@@ -59,7 +59,7 @@ export const S018_QUIZ: Quiz[] = [
   {
     id: 'soc_s018_q004',
     type: 'lesson-quiz',
-    refId: 'S018',
+    refId: 'S-B08',
     subjectId: 'sociology',
 
     question: '结构洞是指不同群体间的桥梁位置，占据结构洞的个体具有信息和控制优势。',
@@ -75,7 +75,7 @@ export const S018_QUIZ: Quiz[] = [
   {
     id: 'soc_s018_q005',
     type: 'lesson-quiz',
-    refId: 'S018',
+    refId: 'S-B08',
     subjectId: 'sociology',
 
     question: '在社会网络中，中心度衡量什么？',

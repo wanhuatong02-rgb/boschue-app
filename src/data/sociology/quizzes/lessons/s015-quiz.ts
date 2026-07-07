@@ -5,7 +5,7 @@ export const S015_QUIZ: Quiz[] = [
   {
     id: 'soc_s015_q001',
     type: 'lesson-quiz',
-    refId: 'S015',
+    refId: 'S-B05',
     subjectId: 'sociology',
 
     question: '年龄等级制度在传统社会中的特点是什么？',
@@ -23,7 +23,7 @@ export const S015_QUIZ: Quiz[] = [
   {
     id: 'soc_s015_q002',
     type: 'lesson-quiz',
-    refId: 'S015',
+    refId: 'S-B05',
     subjectId: 'sociology',
 
     question: '童年社会学关注的核心是什么？',
@@ -41,7 +41,7 @@ export const S015_QUIZ: Quiz[] = [
   {
     id: 'soc_s015_q003',
     type: 'lesson-quiz',
-    refId: 'S015',
+    refId: 'S-B05',
     subjectId: 'sociology',
 
     question: '青少年期的特点是什么？',
@@ -59,7 +59,7 @@ export const S015_QUIZ: Quiz[] = [
   {
     id: 'soc_s015_q004',
     type: 'lesson-quiz',
-    refId: 'S015',
+    refId: 'S-B05',
     subjectId: 'sociology',
 
     question: '人口老龄化是现代社会的重要趋势，对社会结构、经济体系和文化价值观产生深远影响。',
@@ -75,7 +75,7 @@ export const S015_QUIZ: Quiz[] = [
   {
     id: 'soc_s015_q005',
     type: 'lesson-quiz',
-    refId: 'S015',
+    refId: 'S-B05',
     subjectId: 'sociology',
 
     question: '老年社会学研究的主要内容不包括哪项？',

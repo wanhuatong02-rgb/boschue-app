@@ -5,7 +5,7 @@ export const S017_QUIZ: Quiz[] = [
   {
     id: 'soc_s017_q001',
     type: 'lesson-quiz',
-    refId: 'S017',
+    refId: 'S-B07',
     subjectId: 'sociology',
 
     question: '社区的三大要素不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S017_QUIZ: Quiz[] = [
   {
     id: 'soc_s017_q002',
     type: 'lesson-quiz',
-    refId: 'S017',
+    refId: 'S-B07',
     subjectId: 'sociology',
 
     question: '滕尼斯区分的礼俗社会（Gemeinschaft）和法理社会（Gesellschaft）中，礼俗社会基于什么？',
@@ -41,7 +41,7 @@ export const S017_QUIZ: Quiz[] = [
   {
     id: 'soc_s017_q003',
     type: 'lesson-quiz',
-    refId: 'S017',
+    refId: 'S-B07',
     subjectId: 'sociology',
 
     question: '城市社会学中，齐美尔认为城市人具有什么特征？',
@@ -59,7 +59,7 @@ export const S017_QUIZ: Quiz[] = [
   {
     id: 'soc_s017_q004',
     type: 'lesson-quiz',
-    refId: 'S017',
+    refId: 'S-B07',
     subjectId: 'sociology',
 
     question: '传统上，城市以农业为主，农村以第二、三产业为主。',
@@ -75,7 +75,7 @@ export const S017_QUIZ: Quiz[] = [
   {
     id: 'soc_s017_q005',
     type: 'lesson-quiz',
-    refId: 'S017',
+    refId: 'S-B07',
     subjectId: 'sociology',
 
     question: '现代社会中，城乡差异的趋势是什么？',

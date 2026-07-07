@@ -5,7 +5,7 @@ export const S045_QUIZ: Quiz[] = [
   {
     id: 'soc_s045_q001',
     type: 'lesson-quiz',
-    refId: 'S045',
+    refId: 'S-E05',
     subjectId: 'sociology',
 
     question: '经济社会学研究什么？',
@@ -23,7 +23,7 @@ export const S045_QUIZ: Quiz[] = [
   {
     id: 'soc_s045_q002',
     type: 'lesson-quiz',
-    refId: 'S045',
+    refId: 'S-E05',
     subjectId: 'sociology',
 
     question: '波兰尼提出的经济活动嵌入观点是指什么？',
@@ -41,7 +41,7 @@ export const S045_QUIZ: Quiz[] = [
   {
     id: 'soc_s045_q003',
     type: 'lesson-quiz',
-    refId: 'S045',
+    refId: 'S-E05',
     subjectId: 'sociology',
 
     question: '格兰诺维特的"镶嵌理论"强调什么？',
@@ -59,7 +59,7 @@ export const S045_QUIZ: Quiz[] = [
   {
     id: 'soc_s045_q004',
     type: 'lesson-quiz',
-    refId: 'S045',
+    refId: 'S-E05',
     subjectId: 'sociology',
 
     question: '韦伯在《新教伦理与资本主义精神》中分析了资本主义兴起的文化条件。',
@@ -75,7 +75,7 @@ export const S045_QUIZ: Quiz[] = [
   {
     id: 'soc_s045_q005',
     type: 'lesson-quiz',
-    refId: 'S045',
+    refId: 'S-E05',
     subjectId: 'sociology',
 
     question: '不同的资本主义模式包括哪些？',

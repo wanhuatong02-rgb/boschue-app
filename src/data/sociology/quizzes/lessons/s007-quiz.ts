@@ -5,7 +5,7 @@ export const S007_QUIZ: Quiz[] = [
   {
     id: 'soc_s007_q001',
     type: 'lesson-quiz',
-    refId: 'S007',
+    refId: 'S-A07',
     subjectId: 'sociology',
 
     question: '社会化的本质是什么？',
@@ -23,7 +23,7 @@ export const S007_QUIZ: Quiz[] = [
   {
     id: 'soc_s007_q002',
     type: 'lesson-quiz',
-    refId: 'S007',
+    refId: 'S-A07',
     subjectId: 'sociology',
 
     question: '在社会化过程中，最重要的初始机构是什么？',
@@ -41,7 +41,7 @@ export const S007_QUIZ: Quiz[] = [
   {
     id: 'soc_s007_q003',
     type: 'lesson-quiz',
-    refId: 'S007',
+    refId: 'S-A07',
     subjectId: 'sociology',
 
     question: '再社会化是指什么过程？',
@@ -59,7 +59,7 @@ export const S007_QUIZ: Quiz[] = [
   {
     id: 'soc_s007_q004',
     type: 'lesson-quiz',
-    refId: 'S007',
+    refId: 'S-A07',
     subjectId: 'sociology',
 
     question: '性别角色社会化是个体学习性别相关行为模式的过程。',
@@ -75,7 +75,7 @@ export const S007_QUIZ: Quiz[] = [
   {
     id: 'soc_s007_q005',
     type: 'lesson-quiz',
-    refId: 'S007',
+    refId: 'S-A07',
     subjectId: 'sociology',
 
     question: '预期社会化指的是什么？',

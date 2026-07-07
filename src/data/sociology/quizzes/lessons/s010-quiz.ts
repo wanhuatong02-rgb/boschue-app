@@ -5,7 +5,7 @@ export const S010_QUIZ: Quiz[] = [
   {
     id: 'soc_s010_q001',
     type: 'lesson-quiz',
-    refId: 'S010',
+    refId: 'S-A10',
     subjectId: 'sociology',
 
     question: '社会制度的主要功能不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S010_QUIZ: Quiz[] = [
   {
     id: 'soc_s010_q002',
     type: 'lesson-quiz',
-    refId: 'S010',
+    refId: 'S-A10',
     subjectId: 'sociology',
 
     question: '社会制度的主要特征不包括以下哪项？',
@@ -41,7 +41,7 @@ export const S010_QUIZ: Quiz[] = [
   {
     id: 'soc_s010_q003',
     type: 'lesson-quiz',
-    refId: 'S010',
+    refId: 'S-A10',
     subjectId: 'sociology',
 
     question: '下列哪项不是五大主要社会制度之一？',
@@ -59,7 +59,7 @@ export const S010_QUIZ: Quiz[] = [
   {
     id: 'soc_s010_q004',
     type: 'lesson-quiz',
-    refId: 'S010',
+    refId: 'S-A10',
     subjectId: 'sociology',
 
     question: '制度化是指社会实践逐渐固定为常规模式的过程。',
@@ -75,7 +75,7 @@ export const S010_QUIZ: Quiz[] = [
   {
     id: 'soc_s010_q005',
     type: 'lesson-quiz',
-    refId: 'S010',
+    refId: 'S-A10',
     subjectId: 'sociology',
 
     question: '社会制度变迁的动力不包括以下哪项？',

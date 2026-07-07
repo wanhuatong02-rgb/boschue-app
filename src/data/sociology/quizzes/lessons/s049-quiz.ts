@@ -5,7 +5,7 @@ export const S049_QUIZ: Quiz[] = [
   {
     id: 'soc_s049_q001',
     type: 'lesson-quiz',
-    refId: 'S049',
+    refId: 'S-E09',
     subjectId: 'sociology',
 
     question: '当代社会学理论的代表人物不包括以下哪位？',
@@ -23,7 +23,7 @@ export const S049_QUIZ: Quiz[] = [
   {
     id: 'soc_s049_q002',
     type: 'lesson-quiz',
-    refId: 'S049',
+    refId: 'S-E09',
     subjectId: 'sociology',
 
     question: '吉登斯的结构化理论试图解决什么问题？',
@@ -41,7 +41,7 @@ export const S049_QUIZ: Quiz[] = [
   {
     id: 'soc_s049_q003',
     type: 'lesson-quiz',
-    refId: 'S049',
+    refId: 'S-E09',
     subjectId: 'sociology',
 
     question: '哈贝马斯提出的交往行为理论强调什么？',
@@ -59,7 +59,7 @@ export const S049_QUIZ: Quiz[] = [
   {
     id: 'soc_s049_q004',
     type: 'lesson-quiz',
-    refId: 'S049',
+    refId: 'S-E09',
     subjectId: 'sociology',
 
     question: '现象学社会学关注个体的主观经验和社会意义建构过程。',
@@ -75,7 +75,7 @@ export const S049_QUIZ: Quiz[] = [
   {
     id: 'soc_s049_q005',
     type: 'lesson-quiz',
-    refId: 'S049',
+    refId: 'S-E09',
     subjectId: 'sociology',
 
     question: '哈贝马斯的"生活世界的殖民化"理论分析什么？',

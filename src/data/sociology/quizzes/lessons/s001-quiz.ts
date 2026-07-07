@@ -5,7 +5,7 @@ export const S001_QUIZ: Quiz[] = [
   {
     id: 'soc_s001_q001',
     type: 'lesson-quiz',
-    refId: 'S001',
+    refId: 'S-A01',
     subjectId: 'sociology',
 
     question: '社会学这个词的词根"socius"来自哪种语言？',
@@ -23,7 +23,7 @@ export const S001_QUIZ: Quiz[] = [
   {
     id: 'soc_s001_q002',
     type: 'lesson-quiz',
-    refId: 'S001',
+    refId: 'S-A01',
     subjectId: 'sociology',
 
     question: '哪位学者被认为是社会学的创始人？',
@@ -41,7 +41,7 @@ export const S001_QUIZ: Quiz[] = [
   {
     id: 'soc_s001_q003',
     type: 'lesson-quiz',
-    refId: 'S001',
+    refId: 'S-A01',
     subjectId: 'sociology',
 
     question: 'C.赖特·米尔斯提出的哪个概念是社会学的核心思维方式？',
@@ -59,7 +59,7 @@ export const S001_QUIZ: Quiz[] = [
   {
     id: 'soc_s001_q004',
     type: 'lesson-quiz',
-    refId: 'S001',
+    refId: 'S-A01',
     subjectId: 'sociology',
 
     question: '社会学是研究社会行为、社会关系和社会结构的学科。',
@@ -75,7 +75,7 @@ export const S001_QUIZ: Quiz[] = [
   {
     id: 'soc_s001_q005',
     type: 'lesson-quiz',
-    refId: 'S001',
+    refId: 'S-A01',
     subjectId: 'sociology',
 
     question: '下列哪位不是社会学的奠基人？',

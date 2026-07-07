@@ -5,7 +5,7 @@ export const S038_QUIZ: Quiz[] = [
   {
     id: 'soc_s038_q001',
     type: 'lesson-quiz',
-    refId: 'S038',
+    refId: 'S-D08',
     subjectId: 'sociology',
 
     question: '社会影响是指什么？',
@@ -23,7 +23,7 @@ export const S038_QUIZ: Quiz[] = [
   {
     id: 'soc_s038_q002',
     type: 'lesson-quiz',
-    refId: 'S038',
+    refId: 'S-D08',
     subjectId: 'sociology',
 
     question: '阿希的从众实验表明什么？',
@@ -41,7 +41,7 @@ export const S038_QUIZ: Quiz[] = [
   {
     id: 'soc_s038_q003',
     type: 'lesson-quiz',
-    refId: 'S038',
+    refId: 'S-D08',
     subjectId: 'sociology',
 
     question: '米尔格拉姆的服从实验揭示了什么？',
@@ -59,7 +59,7 @@ export const S038_QUIZ: Quiz[] = [
   {
     id: 'soc_s038_q004',
     type: 'lesson-quiz',
-    refId: 'S038',
+    refId: 'S-D08',
     subjectId: 'sociology',
 
     question: '社会压力有助于维护社会秩序和群体凝聚力，但也可能抑制创新和个性。',
@@ -75,7 +75,7 @@ export const S038_QUIZ: Quiz[] = [
   {
     id: 'soc_s038_q005',
     type: 'lesson-quiz',
-    refId: 'S038',
+    refId: 'S-D08',
     subjectId: 'sociology',
 
     question: '社会压力的机制不包括以下哪项？',

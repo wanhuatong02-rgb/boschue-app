@@ -5,7 +5,7 @@ export const S026_QUIZ: Quiz[] = [
   {
     id: 'soc_s026_q001',
     type: 'lesson-quiz',
-    refId: 'S026',
+    refId: 'S-C06',
     subjectId: 'sociology',
 
     question: '教育的社会功能不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S026_QUIZ: Quiz[] = [
   {
     id: 'soc_s026_q002',
     type: 'lesson-quiz',
-    refId: 'S026',
+    refId: 'S-C06',
     subjectId: 'sociology',
 
     question: '教育机会不平等的体现不包括以下哪项？',
@@ -41,7 +41,7 @@ export const S026_QUIZ: Quiz[] = [
   {
     id: 'soc_s026_q003',
     type: 'lesson-quiz',
-    refId: 'S026',
+    refId: 'S-C06',
     subjectId: 'sociology',
 
     question: '学校的隐藏课程（hidden curriculum）传递什么信息？',
@@ -59,7 +59,7 @@ export const S026_QUIZ: Quiz[] = [
   {
     id: 'soc_s026_q004',
     type: 'lesson-quiz',
-    refId: 'S026',
+    refId: 'S-C06',
     subjectId: 'sociology',
 
     question: '教育既是社会发展的手段，也是社会不平等的再生产机制。',
@@ -75,7 +75,7 @@ export const S026_QUIZ: Quiz[] = [
   {
     id: 'soc_s026_q005',
     type: 'lesson-quiz',
-    refId: 'S026',
+    refId: 'S-C06',
     subjectId: 'sociology',
 
     question: '影响教育机会的因素不包括以下哪项？',

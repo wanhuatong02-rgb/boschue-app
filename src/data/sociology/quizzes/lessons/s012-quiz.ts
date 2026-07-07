@@ -5,7 +5,7 @@ export const S012_QUIZ: Quiz[] = [
   {
     id: 'soc_s012_q001',
     type: 'lesson-quiz',
-    refId: 'S012',
+    refId: 'S-B02',
     subjectId: 'sociology',
 
     question: '垂直流动是指什么？',
@@ -23,7 +23,7 @@ export const S012_QUIZ: Quiz[] = [
   {
     id: 'soc_s012_q002',
     type: 'lesson-quiz',
-    refId: 'S012',
+    refId: 'S-B02',
     subjectId: 'sociology',
 
     question: '代际流动是指什么？',
@@ -41,7 +41,7 @@ export const S012_QUIZ: Quiz[] = [
   {
     id: 'soc_s012_q003',
     type: 'lesson-quiz',
-    refId: 'S012',
+    refId: 'S-B02',
     subjectId: 'sociology',
 
     question: '影响社会流动的最重要因素之一是什么？',
@@ -59,7 +59,7 @@ export const S012_QUIZ: Quiz[] = [
   {
     id: 'soc_s012_q004',
     type: 'lesson-quiz',
-    refId: 'S012',
+    refId: 'S-B02',
     subjectId: 'sociology',
 
     question: '水平流动是指社会地位不变但位置改变。',
@@ -75,7 +75,7 @@ export const S012_QUIZ: Quiz[] = [
   {
     id: 'soc_s012_q005',
     type: 'lesson-quiz',
-    refId: 'S012',
+    refId: 'S-B02',
     subjectId: 'sociology',
 
     question: '社会流动率是衡量什么的指标？',

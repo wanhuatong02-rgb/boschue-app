@@ -5,7 +5,7 @@ export const S009_QUIZ: Quiz[] = [
   {
     id: 'soc_s009_q001',
     type: 'lesson-quiz',
-    refId: 'S009',
+    refId: 'S-A09',
     subjectId: 'sociology',
 
     question: '社会群体的核心特征是什么？',
@@ -23,7 +23,7 @@ export const S009_QUIZ: Quiz[] = [
   {
     id: 'soc_s009_q002',
     type: 'lesson-quiz',
-    refId: 'S009',
+    refId: 'S-A09',
     subjectId: 'sociology',
 
     question: '初级群体和次级群体的主要区别是什么？',
@@ -41,7 +41,7 @@ export const S009_QUIZ: Quiz[] = [
   {
     id: 'soc_s009_q003',
     type: 'lesson-quiz',
-    refId: 'S009',
+    refId: 'S-A09',
     subjectId: 'sociology',
 
     question: '参照群体的作用是什么？',
@@ -59,7 +59,7 @@ export const S009_QUIZ: Quiz[] = [
   {
     id: 'soc_s009_q004',
     type: 'lesson-quiz',
-    refId: 'S009',
+    refId: 'S-A09',
     subjectId: 'sociology',
 
     question: '群体思维是指为维护群体和谐而牺牲理性判断的现象。',
@@ -75,7 +75,7 @@ export const S009_QUIZ: Quiz[] = [
   {
     id: 'soc_s009_q005',
     type: 'lesson-quiz',
-    refId: 'S009',
+    refId: 'S-A09',
     subjectId: 'sociology',
 
     question: '在群体动力学中，凝聚力指的是什么？',

@@ -5,7 +5,7 @@ export const S028_QUIZ: Quiz[] = [
   {
     id: 'soc_s028_q001',
     type: 'lesson-quiz',
-    refId: 'S028',
+    refId: 'S-C08',
     subjectId: 'sociology',
 
     question: '世界卫生组织指出，健康的社会决定因素对健康的影响力与医疗保健相比如何？',
@@ -23,7 +23,7 @@ export const S028_QUIZ: Quiz[] = [
   {
     id: 'soc_s028_q002',
     type: 'lesson-quiz',
-    refId: 'S028',
+    refId: 'S-C08',
     subjectId: 'sociology',
 
     question: '医患关系的传统模式是什么？',
@@ -41,7 +41,7 @@ export const S028_QUIZ: Quiz[] = [
   {
     id: 'soc_s028_q003',
     type: 'lesson-quiz',
-    refId: 'S028',
+    refId: 'S-C08',
     subjectId: 'sociology',
 
     question: '医疗资源分配面临的挑战是什么？',
@@ -59,7 +59,7 @@ export const S028_QUIZ: Quiz[] = [
   {
     id: 'soc_s028_q004',
     type: 'lesson-quiz',
-    refId: 'S028',
+    refId: 'S-C08',
     subjectId: 'sociology',
 
     question: '疾病不仅是生物现象，也是社会建构的产物。',
@@ -75,7 +75,7 @@ export const S028_QUIZ: Quiz[] = [
   {
     id: 'soc_s028_q005',
     type: 'lesson-quiz',
-    refId: 'S028',
+    refId: 'S-C08',
     subjectId: 'sociology',
 
     question: '健康不平等问题通常在哪些群体中表现明显？',

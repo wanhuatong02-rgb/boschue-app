@@ -5,7 +5,7 @@ export const S047_QUIZ: Quiz[] = [
   {
     id: 'soc_s047_q001',
     type: 'lesson-quiz',
-    refId: 'S047',
+    refId: 'S-E07',
     subjectId: 'sociology',
 
     question: '社会政策的本质是什么？',
@@ -23,7 +23,7 @@ export const S047_QUIZ: Quiz[] = [
   {
     id: 'soc_s047_q002',
     type: 'lesson-quiz',
-    refId: 'S047',
+    refId: 'S-E07',
     subjectId: 'sociology',
 
     question: '社会政策的特征不包括以下哪项？',
@@ -41,7 +41,7 @@ export const S047_QUIZ: Quiz[] = [
   {
     id: 'soc_s047_q003',
     type: 'lesson-quiz',
-    refId: 'S047',
+    refId: 'S-E07',
     subjectId: 'sociology',
 
     question: '艾斯平-安德森将福利国家分为哪三类？',
@@ -59,7 +59,7 @@ export const S047_QUIZ: Quiz[] = [
   {
     id: 'soc_s047_q004',
     type: 'lesson-quiz',
-    refId: 'S047',
+    refId: 'S-E07',
     subjectId: 'sociology',
 
     question: '政策评估包括过程评估（政策如何实施）和结果评估（政策效果如何）。',
@@ -75,7 +75,7 @@ export const S047_QUIZ: Quiz[] = [
   {
     id: 'soc_s047_q005',
     type: 'lesson-quiz',
-    refId: 'S047',
+    refId: 'S-E07',
     subjectId: 'sociology',
 
     question: '社会政策制定的影响因素不包括以下哪项？',

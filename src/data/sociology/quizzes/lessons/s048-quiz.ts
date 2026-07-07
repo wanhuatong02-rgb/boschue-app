@@ -5,7 +5,7 @@ export const S048_QUIZ: Quiz[] = [
   {
     id: 'soc_s048_q001',
     type: 'lesson-quiz',
-    refId: 'S048',
+    refId: 'S-E08',
     subjectId: 'sociology',
 
     question: '比较社会学通过什么方式揭示社会发展规律？',
@@ -23,7 +23,7 @@ export const S048_QUIZ: Quiz[] = [
   {
     id: 'soc_s048_q002',
     type: 'lesson-quiz',
-    refId: 'S048',
+    refId: 'S-E08',
     subjectId: 'sociology',
 
     question: '霍夫斯泰德的文化维度理论包括以下哪项？',
@@ -41,7 +41,7 @@ export const S048_QUIZ: Quiz[] = [
   {
     id: 'soc_s048_q003',
     type: 'lesson-quiz',
-    refId: 'S048',
+    refId: 'S-E08',
     subjectId: 'sociology',
 
     question: '不同社会的发展路径通常呈现什么特点？',
@@ -59,7 +59,7 @@ export const S048_QUIZ: Quiz[] = [
   {
     id: 'soc_s048_q004',
     type: 'lesson-quiz',
-    refId: 'S048',
+    refId: 'S-E08',
     subjectId: 'sociology',
 
     question: '比较研究需要处理可比性问题，比较单位需要具有可比性。',
@@ -75,7 +75,7 @@ export const S048_QUIZ: Quiz[] = [
   {
     id: 'soc_s048_q005',
     type: 'lesson-quiz',
-    refId: 'S048',
+    refId: 'S-E08',
     subjectId: 'sociology',
 
     question: '比较社会学在研究中需要避免什么？',

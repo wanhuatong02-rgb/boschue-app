@@ -5,7 +5,7 @@ export const S046_QUIZ: Quiz[] = [
   {
     id: 'soc_s046_q001',
     type: 'lesson-quiz',
-    refId: 'S046',
+    refId: 'S-E06',
     subjectId: 'sociology',
 
     question: '数字社会学研究什么？',
@@ -23,7 +23,7 @@ export const S046_QUIZ: Quiz[] = [
   {
     id: 'soc_s046_q002',
     type: 'lesson-quiz',
-    refId: 'S046',
+    refId: 'S-E06',
     subjectId: 'sociology',
 
     question: '数字化对社会交往的主要影响是什么？',
@@ -41,7 +41,7 @@ export const S046_QUIZ: Quiz[] = [
   {
     id: 'soc_s046_q003',
     type: 'lesson-quiz',
-    refId: 'S046',
+    refId: 'S-E06',
     subjectId: 'sociology',
 
     question: '卡斯特尔提出的"网络社会"概念强调什么？',
@@ -59,7 +59,7 @@ export const S046_QUIZ: Quiz[] = [
   {
     id: 'soc_s046_q004',
     type: 'lesson-quiz',
-    refId: 'S046',
+    refId: 'S-E06',
     subjectId: 'sociology',
 
     question: '数字鸿沟指不同群体在数字技术接入、使用、受益方面的差距。',
@@ -75,7 +75,7 @@ export const S046_QUIZ: Quiz[] = [
   {
     id: 'soc_s046_q005',
     type: 'lesson-quiz',
-    refId: 'S046',
+    refId: 'S-E06',
     subjectId: 'sociology',
 
     question: '人工智能在社会中的影响不包括以下哪项？',

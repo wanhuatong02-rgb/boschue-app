@@ -5,7 +5,7 @@ export const S013_QUIZ: Quiz[] = [
   {
     id: 'soc_s013_q001',
     type: 'lesson-quiz',
-    refId: 'S013',
+    refId: 'S-B03',
     subjectId: 'sociology',
 
     question: '种族主要指什么？',
@@ -23,7 +23,7 @@ export const S013_QUIZ: Quiz[] = [
   {
     id: 'soc_s013_q002',
     type: 'lesson-quiz',
-    refId: 'S013',
+    refId: 'S-B03',
     subjectId: 'sociology',
 
     question: '民族主要指什么？',
@@ -41,7 +41,7 @@ export const S013_QUIZ: Quiz[] = [
   {
     id: 'soc_s013_q003',
     type: 'lesson-quiz',
-    refId: 'S013',
+    refId: 'S-B03',
     subjectId: 'sociology',
 
     question: '种族偏见是指什么？',
@@ -59,7 +59,7 @@ export const S013_QUIZ: Quiz[] = [
   {
     id: 'soc_s013_q004',
     type: 'lesson-quiz',
-    refId: 'S013',
+    refId: 'S-B03',
     subjectId: 'sociology',
 
     question: '种族歧视是基于种族偏见的行为，表现为不公平的差别对待。',
@@ -75,7 +75,7 @@ export const S013_QUIZ: Quiz[] = [
   {
     id: 'soc_s013_q005',
     type: 'lesson-quiz',
-    refId: 'S013',
+    refId: 'S-B03',
     subjectId: 'sociology',
 
     question: '少数民族可能采取的适应策略不包括哪一项？',

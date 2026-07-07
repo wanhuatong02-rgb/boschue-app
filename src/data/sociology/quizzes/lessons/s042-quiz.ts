@@ -5,7 +5,7 @@ export const S042_QUIZ: Quiz[] = [
   {
     id: 'soc_s042_q001',
     type: 'lesson-quiz',
-    refId: 'S042',
+    refId: 'S-E02',
     subjectId: 'sociology',
 
     question: '法律社会学研究什么？',
@@ -23,7 +23,7 @@ export const S042_QUIZ: Quiz[] = [
   {
     id: 'soc_s042_q002',
     type: 'lesson-quiz',
-    refId: 'S042',
+    refId: 'S-E02',
     subjectId: 'sociology',
 
     question: '法律的社会功能不包括以下哪项？',
@@ -41,7 +41,7 @@ export const S042_QUIZ: Quiz[] = [
   {
     id: 'soc_s042_q003',
     type: 'lesson-quiz',
-    refId: 'S042',
+    refId: 'S-E02',
     subjectId: 'sociology',
 
     question: '涂尔干认为法律反映社会团结的哪种类型？',
@@ -59,7 +59,7 @@ export const S042_QUIZ: Quiz[] = [
   {
     id: 'soc_s042_q004',
     type: 'lesson-quiz',
-    refId: 'S042',
+    refId: 'S-E02',
     subjectId: 'sociology',
 
     question: '程序正义强调过程的公正性，包括公开、参与、中立、尊重等要素。',
@@ -75,7 +75,7 @@ export const S042_QUIZ: Quiz[] = [
   {
     id: 'soc_s042_q005',
     type: 'lesson-quiz',
-    refId: 'S042',
+    refId: 'S-E02',
     subjectId: 'sociology',
 
     question: '法律多元主义认为什么？',

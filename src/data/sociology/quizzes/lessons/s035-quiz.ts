@@ -5,7 +5,7 @@ export const S035_QUIZ: Quiz[] = [
   {
     id: 'soc_s035_q001',
     type: 'lesson-quiz',
-    refId: 'S035',
+    refId: 'S-D05',
     subjectId: 'sociology',
 
     question: '风险社会理论是由哪位学者提出的？',
@@ -23,7 +23,7 @@ export const S035_QUIZ: Quiz[] = [
   {
     id: 'soc_s035_q002',
     type: 'lesson-quiz',
-    refId: 'S035',
+    refId: 'S-D05',
     subjectId: 'sociology',
 
     question: '风险社会中风险的主要特征不包括以下哪项？',
@@ -41,7 +41,7 @@ export const S035_QUIZ: Quiz[] = [
   {
     id: 'soc_s035_q003',
     type: 'lesson-quiz',
-    refId: 'S035',
+    refId: 'S-D05',
     subjectId: 'sociology',
 
     question: '传统社会的风险主要是哪一类？',
@@ -59,7 +59,7 @@ export const S035_QUIZ: Quiz[] = [
   {
     id: 'soc_s035_q004',
     type: 'lesson-quiz',
-    refId: 'S035',
+    refId: 'S-D05',
     subjectId: 'sociology',
 
     question: '风险与信任关系密切，对政府、企业、科学机构的信任影响公众对风险的接受度。',
@@ -75,7 +75,7 @@ export const S035_QUIZ: Quiz[] = [
   {
     id: 'soc_s035_q005',
     type: 'lesson-quiz',
-    refId: 'S035',
+    refId: 'S-D05',
     subjectId: 'sociology',
 
     question: '风险社会的治理需要什么模式？',

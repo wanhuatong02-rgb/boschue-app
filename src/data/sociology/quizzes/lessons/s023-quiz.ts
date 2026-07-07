@@ -5,7 +5,7 @@ export const S023_QUIZ: Quiz[] = [
   {
     id: 'soc_s023_q001',
     type: 'lesson-quiz',
-    refId: 'S023',
+    refId: 'S-C03',
     subjectId: 'sociology',
 
     question: '全球化的维度不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S023_QUIZ: Quiz[] = [
   {
     id: 'soc_s023_q002',
     type: 'lesson-quiz',
-    refId: 'S023',
+    refId: 'S-C03',
     subjectId: 'sociology',
 
     question: '文化全球化的一个典型例子是什么？',
@@ -41,7 +41,7 @@ export const S023_QUIZ: Quiz[] = [
   {
     id: 'soc_s023_q003',
     type: 'lesson-quiz',
-    refId: 'S023',
+    refId: 'S-C03',
     subjectId: 'sociology',
 
     question: '经济全球化的表现不包括以下哪项？',
@@ -59,7 +59,7 @@ export const S023_QUIZ: Quiz[] = [
   {
     id: 'soc_s023_q004',
     type: 'lesson-quiz',
-    refId: 'S023',
+    refId: 'S-C03',
     subjectId: 'sociology',
 
     question: '政治全球化表现为国际组织、跨国治理机制的发展以及国际法和人权观念的传播。',
@@ -75,7 +75,7 @@ export const S023_QUIZ: Quiz[] = [
   {
     id: 'soc_s023_q005',
     type: 'lesson-quiz',
-    refId: 'S023',
+    refId: 'S-C03',
     subjectId: 'sociology',
 
     question: '文化全球化带来的影响是什么？',

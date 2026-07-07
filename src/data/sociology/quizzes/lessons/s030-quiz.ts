@@ -5,7 +5,7 @@ export const S030_QUIZ: Quiz[] = [
   {
     id: 'soc_s030_q001',
     type: 'lesson-quiz',
-    refId: 'S030',
+    refId: 'S-C10',
     subjectId: 'sociology',
 
     question: '环境社会学研究的主要内容是什么？',
@@ -23,7 +23,7 @@ export const S030_QUIZ: Quiz[] = [
   {
     id: 'soc_s030_q002',
     type: 'lesson-quiz',
-    refId: 'S030',
+    refId: 'S-C10',
     subjectId: 'sociology',
 
     question: '环境问题的社会根源不包括以下哪项？',
@@ -41,7 +41,7 @@ export const S030_QUIZ: Quiz[] = [
   {
     id: 'soc_s030_q003',
     type: 'lesson-quiz',
-    refId: 'S030',
+    refId: 'S-C10',
     subjectId: 'sociology',
 
     question: '可持续发展的核心理念是什么？',
@@ -59,7 +59,7 @@ export const S030_QUIZ: Quiz[] = [
   {
     id: 'soc_s030_q004',
     type: 'lesson-quiz',
-    refId: 'S030',
+    refId: 'S-C10',
     subjectId: 'sociology',
 
     question: '环境正义关注环境负担和环境收益的公平分配。',
@@ -75,7 +75,7 @@ export const S030_QUIZ: Quiz[] = [
   {
     id: 'soc_s030_q005',
     type: 'lesson-quiz',
-    refId: 'S030',
+    refId: 'S-C10',
     subjectId: 'sociology',
 
     question: '生态运动的主要作用是什么？',

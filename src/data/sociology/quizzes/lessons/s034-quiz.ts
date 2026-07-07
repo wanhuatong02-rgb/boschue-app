@@ -5,7 +5,7 @@ export const S034_QUIZ: Quiz[] = [
   {
     id: 'soc_s034_q001',
     type: 'lesson-quiz',
-    refId: 'S034',
+    refId: 'S-D04',
     subjectId: 'sociology',
 
     question: '消费社会学研究的核心是什么？',
@@ -23,7 +23,7 @@ export const S034_QUIZ: Quiz[] = [
   {
     id: 'soc_s034_q002',
     type: 'lesson-quiz',
-    refId: 'S034',
+    refId: 'S-D04',
     subjectId: 'sociology',
 
     question: '消费主义的核心价值观是什么？',
@@ -41,7 +41,7 @@ export const S034_QUIZ: Quiz[] = [
   {
     id: 'soc_s034_q003',
     type: 'lesson-quiz',
-    refId: 'S034',
+    refId: 'S-D04',
     subjectId: 'sociology',
 
     question: '鲍德里亚认为现代消费主要是哪种类型的消费？',
@@ -59,7 +59,7 @@ export const S034_QUIZ: Quiz[] = [
   {
     id: 'soc_s034_q004',
     type: 'lesson-quiz',
-    refId: 'S034',
+    refId: 'S-D04',
     subjectId: 'sociology',
 
     question: '品牌不仅是产品质量的标识，也是身份认同的符号。',
@@ -75,7 +75,7 @@ export const S034_QUIZ: Quiz[] = [
   {
     id: 'soc_s034_q005',
     type: 'lesson-quiz',
-    refId: 'S034',
+    refId: 'S-D04',
     subjectId: 'sociology',
 
     question: '可持续消费强调什么？',

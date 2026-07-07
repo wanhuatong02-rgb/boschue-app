@@ -5,7 +5,7 @@ export const S043_QUIZ: Quiz[] = [
   {
     id: 'soc_s043_q001',
     type: 'lesson-quiz',
-    refId: 'S043',
+    refId: 'S-E03',
     subjectId: 'sociology',
 
     question: '宗教社会学研究什么？',
@@ -23,7 +23,7 @@ export const S043_QUIZ: Quiz[] = [
   {
     id: 'soc_s043_q002',
     type: 'lesson-quiz',
-    refId: 'S043',
+    refId: 'S-E03',
     subjectId: 'sociology',
 
     question: '涂尔干认为宗教的核心社会功能是什么？',
@@ -41,7 +41,7 @@ export const S043_QUIZ: Quiz[] = [
   {
     id: 'soc_s043_q003',
     type: 'lesson-quiz',
-    refId: 'S043',
+    refId: 'S-E03',
     subjectId: 'sociology',
 
     question: '世俗化理论的核心观点是什么？',
@@ -59,7 +59,7 @@ export const S043_QUIZ: Quiz[] = [
   {
     id: 'soc_s043_q004',
     type: 'lesson-quiz',
-    refId: 'S043',
+    refId: 'S-E03',
     subjectId: 'sociology',
 
     question: '宗教具有心理慰藉功能，帮助个体应对生死、苦难等终极问题。',
@@ -75,7 +75,7 @@ export const S043_QUIZ: Quiz[] = [
   {
     id: 'soc_s043_q005',
     type: 'lesson-quiz',
-    refId: 'S043',
+    refId: 'S-E03',
     subjectId: 'sociology',
 
     question: '政教关系的理想原则是什么？',

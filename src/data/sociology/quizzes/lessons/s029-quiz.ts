@@ -5,7 +5,7 @@ export const S029_QUIZ: Quiz[] = [
   {
     id: 'soc_s029_q001',
     type: 'lesson-quiz',
-    refId: 'S029',
+    refId: 'S-C09',
     subjectId: 'sociology',
 
     question: '人口统计学的基本指标不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S029_QUIZ: Quiz[] = [
   {
     id: 'soc_s029_q002',
     type: 'lesson-quiz',
-    refId: 'S029',
+    refId: 'S-C09',
     subjectId: 'sociology',
 
     question: '人口转变理论中的第三阶段特征是什么？',
@@ -41,7 +41,7 @@ export const S029_QUIZ: Quiz[] = [
   {
     id: 'soc_s029_q003',
     type: 'lesson-quiz',
-    refId: 'S029',
+    refId: 'S-C09',
     subjectId: 'sociology',
 
     question: '中国目前处于人口转变的哪个阶段？',
@@ -59,7 +59,7 @@ export const S029_QUIZ: Quiz[] = [
   {
     id: 'soc_s029_q004',
     type: 'lesson-quiz',
-    refId: 'S029',
+    refId: 'S-C09',
     subjectId: 'sociology',
 
     question: '人口老龄化是指65岁以上人口比例超过7%的社会现象。',
@@ -75,7 +75,7 @@ export const S029_QUIZ: Quiz[] = [
   {
     id: 'soc_s029_q005',
     type: 'lesson-quiz',
-    refId: 'S029',
+    refId: 'S-C09',
     subjectId: 'sociology',
 
     question: '人口老龄化带来的社会挑战不包括以下哪项？',

@@ -5,7 +5,7 @@ export const S016_QUIZ: Quiz[] = [
   {
     id: 'soc_s016_q001',
     type: 'lesson-quiz',
-    refId: 'S016',
+    refId: 'S-B06',
     subjectId: 'sociology',
 
     question: '正式组织的主要特征是什么？',
@@ -23,7 +23,7 @@ export const S016_QUIZ: Quiz[] = [
   {
     id: 'soc_s016_q002',
     type: 'lesson-quiz',
-    refId: 'S016',
+    refId: 'S-B06',
     subjectId: 'sociology',
 
     question: '非正式组织是如何形成的？',
@@ -41,7 +41,7 @@ export const S016_QUIZ: Quiz[] = [
   {
     id: 'soc_s016_q003',
     type: 'lesson-quiz',
-    refId: 'S016',
+    refId: 'S-B06',
     subjectId: 'sociology',
 
     question: '韦伯的科层制理论强调哪些特征？',
@@ -59,7 +59,7 @@ export const S016_QUIZ: Quiz[] = [
   {
     id: 'soc_s016_q004',
     type: 'lesson-quiz',
-    refId: 'S016',
+    refId: 'S-B06',
     subjectId: 'sociology',
 
     question: '机械团结存在于现代社会，基于功能分化和相互依赖。',
@@ -75,7 +75,7 @@ export const S016_QUIZ: Quiz[] = [
   {
     id: 'soc_s016_q005',
     type: 'lesson-quiz',
-    refId: 'S016',
+    refId: 'S-B06',
     subjectId: 'sociology',
 
     question: '组织文化的作用是什么？',

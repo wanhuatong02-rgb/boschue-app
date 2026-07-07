@@ -5,7 +5,7 @@ export const S024_QUIZ: Quiz[] = [
   {
     id: 'soc_s024_q001',
     type: 'lesson-quiz',
-    refId: 'S024',
+    refId: 'S-C04',
     subjectId: 'sociology',
 
     question: '社会问题的界定标准不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S024_QUIZ: Quiz[] = [
   {
     id: 'soc_s024_q002',
     type: 'lesson-quiz',
-    refId: 'S024',
+    refId: 'S-C04',
     subjectId: 'sociology',
 
     question: '社会问题的形成原因不包括以下哪项？',
@@ -41,7 +41,7 @@ export const S024_QUIZ: Quiz[] = [
   {
     id: 'soc_s024_q003',
     type: 'lesson-quiz',
-    refId: 'S024',
+    refId: 'S-C04',
     subjectId: 'sociology',
 
     question: '解决社会问题的途径不包括以下哪项？',
@@ -59,7 +59,7 @@ export const S024_QUIZ: Quiz[] = [
   {
     id: 'soc_s024_q004',
     type: 'lesson-quiz',
-    refId: 'S024',
+    refId: 'S-C04',
     subjectId: 'sociology',
 
     question: '社会问题的认定具有社会建构性，同一现象在不同时期、不同社会可能被认定为不同程度的问题。',
@@ -75,7 +75,7 @@ export const S024_QUIZ: Quiz[] = [
   {
     id: 'soc_s024_q005',
     type: 'lesson-quiz',
-    refId: 'S024',
+    refId: 'S-C04',
     subjectId: 'sociology',
 
     question: '社会政策在解决社会问题中的作用是什么？',

@@ -5,7 +5,7 @@ export const S019_QUIZ: Quiz[] = [
   {
     id: 'soc_s019_q001',
     type: 'lesson-quiz',
-    refId: 'S019',
+    refId: 'S-B09',
     subjectId: 'sociology',
 
     question: '角色期待是指什么？',
@@ -23,7 +23,7 @@ export const S019_QUIZ: Quiz[] = [
   {
     id: 'soc_s019_q002',
     type: 'lesson-quiz',
-    refId: 'S019',
+    refId: 'S-B09',
     subjectId: 'sociology',
 
     question: '角色冲突发生在什么情况下？',
@@ -41,7 +41,7 @@ export const S019_QUIZ: Quiz[] = [
   {
     id: 'soc_s019_q003',
     type: 'lesson-quiz',
-    refId: 'S019',
+    refId: 'S-B09',
     subjectId: 'sociology',
 
     question: '角色认同是指什么？',
@@ -59,7 +59,7 @@ export const S019_QUIZ: Quiz[] = [
   {
     id: 'soc_s019_q004',
     type: 'lesson-quiz',
-    refId: 'S019',
+    refId: 'S-B09',
     subjectId: 'sociology',
 
     question: '角色紧张是指个体履行单一角色时遇到的困难和压力。',
@@ -75,7 +75,7 @@ export const S019_QUIZ: Quiz[] = [
   {
     id: 'soc_s019_q005',
     type: 'lesson-quiz',
-    refId: 'S019',
+    refId: 'S-B09',
     subjectId: 'sociology',
 
     question: '现代社会中，个体通常承担什么样的角色？',

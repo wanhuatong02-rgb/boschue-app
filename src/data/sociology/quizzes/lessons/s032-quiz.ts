@@ -5,7 +5,7 @@ export const S032_QUIZ: Quiz[] = [
   {
     id: 'soc_s032_q001',
     type: 'lesson-quiz',
-    refId: 'S032',
+    refId: 'S-D02',
     subjectId: 'sociology',
 
     question: '社会运动的主要特征不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S032_QUIZ: Quiz[] = [
   {
     id: 'soc_s032_q002',
     type: 'lesson-quiz',
-    refId: 'S032',
+    refId: 'S-D02',
     subjectId: 'sociology',
 
     question: '资源动员理论强调社会运动需要什么？',
@@ -41,7 +41,7 @@ export const S032_QUIZ: Quiz[] = [
   {
     id: 'soc_s032_q003',
     type: 'lesson-quiz',
-    refId: 'S032',
+    refId: 'S-D02',
     subjectId: 'sociology',
 
     question: '框架分析关注社会运动的哪个方面？',
@@ -59,7 +59,7 @@ export const S032_QUIZ: Quiz[] = [
   {
     id: 'soc_s032_q004',
     type: 'lesson-quiz',
-    refId: 'S032',
+    refId: 'S-D02',
     subjectId: 'sociology',
 
     question: '社会运动是通过非常规政治参与方式争取资源、权利或价值观改变的集体行为。',
@@ -75,7 +75,7 @@ export const S032_QUIZ: Quiz[] = [
   {
     id: 'soc_s032_q005',
     type: 'lesson-quiz',
-    refId: 'S032',
+    refId: 'S-D02',
     subjectId: 'sociology',
 
     question: '社会运动的发生受哪些因素影响？',

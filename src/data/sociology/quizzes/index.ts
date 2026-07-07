@@ -1,6 +1,12 @@
 import type { Quiz } from '@/types';
 
 // 导入所有社会学课程测验
+import { S00_QUIZ } from './lessons/s000-quiz';
+import { SA00_QUIZ } from './lessons/sa00-quiz';
+import { SB00_QUIZ } from './lessons/sb00-quiz';
+import { SC00_QUIZ } from './lessons/sc00-quiz';
+import { SD00_QUIZ } from './lessons/sd00-quiz';
+import { SE00_QUIZ } from './lessons/se00-quiz';
 import S001_QUIZ from './lessons/s001-quiz';
 import S002_QUIZ from './lessons/s002-quiz';
 import S003_QUIZ from './lessons/s003-quiz';
@@ -62,6 +68,7 @@ import { FINAL_QUIZ } from './final-quiz';
 
 // 汇总所有社会学测验
 export const ALL_SOCIOLOGY_LESSON_QUIZZES: Quiz[] = [
+  ...S00_QUIZ, ...SA00_QUIZ, ...SB00_QUIZ, ...SC00_QUIZ, ...SD00_QUIZ, ...SE00_QUIZ,
   ...S001_QUIZ, ...S002_QUIZ, ...S003_QUIZ, ...S004_QUIZ, ...S005_QUIZ,
   ...S006_QUIZ, ...S007_QUIZ, ...S008_QUIZ, ...S009_QUIZ, ...S010_QUIZ,
   ...S011_QUIZ, ...S012_QUIZ, ...S013_QUIZ, ...S014_QUIZ, ...S015_QUIZ,

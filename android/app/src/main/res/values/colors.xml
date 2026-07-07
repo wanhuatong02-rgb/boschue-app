@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 博学者品牌色 — 与 Tailwind 配置保持一致 -->
+    <color name="colorPrimary">#7AAEC0</color>
+    <color name="colorPrimaryDark">#5A8E9F</color>
+    <color name="colorAccent">#7AAEC0</color>
+    <color name="canvas">#E8F5F9</color>
+    <color name="splash_background">#E8F5F9</color>
+    <color name="white">#FFFFFF</color>
+    <color name="ink">#1F1F1F</color>
+</resources>

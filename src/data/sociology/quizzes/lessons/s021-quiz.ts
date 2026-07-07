@@ -5,7 +5,7 @@ export const S021_QUIZ: Quiz[] = [
   {
     id: 'soc_s021_q001',
     type: 'lesson-quiz',
-    refId: 'S021',
+    refId: 'S-C01',
     subjectId: 'sociology',
 
     question: '社会变迁的主要动力不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S021_QUIZ: Quiz[] = [
   {
     id: 'soc_s021_q002',
     type: 'lesson-quiz',
-    refId: 'S021',
+    refId: 'S-C01',
     subjectId: 'sociology',
 
     question: '社会进化论的代表人物是谁？',
@@ -41,7 +41,7 @@ export const S021_QUIZ: Quiz[] = [
   {
     id: 'soc_s021_q003',
     type: 'lesson-quiz',
-    refId: 'S021',
+    refId: 'S-C01',
     subjectId: 'sociology',
 
     question: '循环论认为社会变迁呈现什么特征？',
@@ -59,7 +59,7 @@ export const S021_QUIZ: Quiz[] = [
   {
     id: 'soc_s021_q004',
     type: 'lesson-quiz',
-    refId: 'S021',
+    refId: 'S-C01',
     subjectId: 'sociology',
 
     question: '冲突论强调社会变迁源于不同利益群体的斗争。',
@@ -75,7 +75,7 @@ export const S021_QUIZ: Quiz[] = [
   {
     id: 'soc_s021_q005',
     type: 'lesson-quiz',
-    refId: 'S021',
+    refId: 'S-C01',
     subjectId: 'sociology',
 
     question: '社会变迁可能呈现什么特点？',

@@ -5,7 +5,7 @@ export const S044_QUIZ: Quiz[] = [
   {
     id: 'soc_s044_q001',
     type: 'lesson-quiz',
-    refId: 'S044',
+    refId: 'S-E04',
     subjectId: 'sociology',
 
     question: '政治社会学研究什么？',
@@ -23,7 +23,7 @@ export const S044_QUIZ: Quiz[] = [
   {
     id: 'soc_s044_q002',
     type: 'lesson-quiz',
-    refId: 'S044',
+    refId: 'S-E04',
     subjectId: 'sociology',
 
     question: '韦伯区分的三种权威类型不包括以下哪项？',
@@ -41,7 +41,7 @@ export const S044_QUIZ: Quiz[] = [
   {
     id: 'soc_s044_q003',
     type: 'lesson-quiz',
-    refId: 'S044',
+    refId: 'S-E04',
     subjectId: 'sociology',
 
     question: '现代国家主要以哪种权威类型为主导？',
@@ -59,7 +59,7 @@ export const S044_QUIZ: Quiz[] = [
   {
     id: 'soc_s044_q004',
     type: 'lesson-quiz',
-    refId: 'S044',
+    refId: 'S-E04',
     subjectId: 'sociology',
 
     question: '市民社会概念强调独立于国家的社会组织的重要性。',
@@ -75,7 +75,7 @@ export const S044_QUIZ: Quiz[] = [
   {
     id: 'soc_s044_q005',
     type: 'lesson-quiz',
-    refId: 'S044',
+    refId: 'S-E04',
     subjectId: 'sociology',
 
     question: '民主化的第三波浪潮与什么因素有关？',

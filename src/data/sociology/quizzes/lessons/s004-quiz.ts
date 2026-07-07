@@ -5,7 +5,7 @@ export const S004_QUIZ: Quiz[] = [
   {
     id: 'soc_s004_q001',
     type: 'lesson-quiz',
-    refId: 'S004',
+    refId: 'S-A04',
     subjectId: 'sociology',
 
     question: '问卷调查法的最大优势是什么？',
@@ -23,7 +23,7 @@ export const S004_QUIZ: Quiz[] = [
   {
     id: 'soc_s004_q002',
     type: 'lesson-quiz',
-    refId: 'S004',
+    refId: 'S-A04',
     subjectId: 'sociology',
 
     question: '深度访谈最适合用于哪种情况？',
@@ -41,7 +41,7 @@ export const S004_QUIZ: Quiz[] = [
   {
     id: 'soc_s004_q003',
     type: 'lesson-quiz',
-    refId: 'S004',
+    refId: 'S-A04',
     subjectId: 'sociology',
 
     question: '参与观察中研究者如何进行研究？',
@@ -59,7 +59,7 @@ export const S004_QUIZ: Quiz[] = [
   {
     id: 'soc_s004_q004',
     type: 'lesson-quiz',
-    refId: 'S004',
+    refId: 'S-A04',
     subjectId: 'sociology',
 
     question: '文献分析法的成本低，能追溯历史变迁，但依赖于文献的可获得性和可靠性。',
@@ -75,7 +75,7 @@ export const S004_QUIZ: Quiz[] = [
   {
     id: 'soc_s004_q005',
     type: 'lesson-quiz',
-    refId: 'S004',
+    refId: 'S-A04',
     subjectId: 'sociology',
 
     question: '网络数据收集面临的最大挑战之一是什么？',

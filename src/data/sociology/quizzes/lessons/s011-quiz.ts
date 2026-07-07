@@ -5,7 +5,7 @@ export const S011_QUIZ: Quiz[] = [
   {
     id: 'soc_s011_q001',
     type: 'lesson-quiz',
-    refId: 'S011',
+    refId: 'S-B01',
     subjectId: 'sociology',
 
     question: '社会分层的主要标准不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S011_QUIZ: Quiz[] = [
   {
     id: 'soc_s011_q002',
     type: 'lesson-quiz',
-    refId: 'S011',
+    refId: 'S-B01',
     subjectId: 'sociology',
 
     question: '韦伯的三维分层理论包括哪三个方面？',
@@ -41,7 +41,7 @@ export const S011_QUIZ: Quiz[] = [
   {
     id: 'soc_s011_q003',
     type: 'lesson-quiz',
-    refId: 'S011',
+    refId: 'S-B01',
     subjectId: 'sociology',
 
     question: '马克思认为社会阶级划分的依据是什么？',
@@ -59,7 +59,7 @@ export const S011_QUIZ: Quiz[] = [
   {
     id: 'soc_s011_q004',
     type: 'lesson-quiz',
-    refId: 'S011',
+    refId: 'S-B01',
     subjectId: 'sociology',
 
     question: '种姓制是开放的分层体系，允许自由流动。',
@@ -75,7 +75,7 @@ export const S011_QUIZ: Quiz[] = [
   {
     id: 'soc_s011_q005',
     type: 'lesson-quiz',
-    refId: 'S011',
+    refId: 'S-B01',
     subjectId: 'sociology',
 
     question: '社会分层的功能包括哪些？',

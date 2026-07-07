@@ -5,7 +5,7 @@ export const S033_QUIZ: Quiz[] = [
   {
     id: 'soc_s033_q001',
     type: 'lesson-quiz',
-    refId: 'S033',
+    refId: 'S-D03',
     subjectId: 'sociology',
 
     question: '媒体的社会功能不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S033_QUIZ: Quiz[] = [
   {
     id: 'soc_s033_q002',
     type: 'lesson-quiz',
-    refId: 'S033',
+    refId: 'S-D03',
     subjectId: 'sociology',
 
     question: '议程设置理论的核心观点是什么？',
@@ -41,7 +41,7 @@ export const S033_QUIZ: Quiz[] = [
   {
     id: 'soc_s033_q003',
     type: 'lesson-quiz',
-    refId: 'S033',
+    refId: 'S-D03',
     subjectId: 'sociology',
 
     question: '沉默螺旋理论描述的是什么现象？',
@@ -59,7 +59,7 @@ export const S033_QUIZ: Quiz[] = [
   {
     id: 'soc_s033_q004',
     type: 'lesson-quiz',
-    refId: 'S033',
+    refId: 'S-D03',
     subjectId: 'sociology',
 
     question: '媒体在民主社会中扮演"第四权力"的角色，发挥制衡作用。',
@@ -75,7 +75,7 @@ export const S033_QUIZ: Quiz[] = [
   {
     id: 'soc_s033_q005',
     type: 'lesson-quiz',
-    refId: 'S033',
+    refId: 'S-D03',
     subjectId: 'sociology',
 
     question: '数字媒体时代对议程设置理论产生了什么影响？',

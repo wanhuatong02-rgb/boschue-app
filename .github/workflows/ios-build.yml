@@ -182,6 +182,9 @@ jobs:
       - name: Update Info.plist
         run: |
           PLIST=ios/App/App/Info.plist
+          # 版本号必须与 Android 侧 (build.gradle) 同步, 否则双平台版本不一致
+          /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString 1.1" "$PLIST"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion 2" "$PLIST"
           /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName Boxuezhe" "$PLIST"
           /usr/libexec/PlistBuddy -c "Set :CFBundleName Boxuezhe" "$PLIST"
           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity dict" "$PLIST" 2>/dev/null || true
@@ -228,7 +231,40 @@ jobs:
           echo "--- Done ---"
 
       # ------------------------------------------------------------------
-      # 8. 上传
+      # 8. 格式转换 —— 把 unsigned IPA 做 ad-hoc 重签名
+      #    用codesign --sign - 做ad-hoc签名, 产出 signed IPA
+      #    模拟器 / 越狱机可直接安装, 比普通 zip 打包的 IPA 兼容更好
+      # ------------------------------------------------------------------
+      - name: Convert format (ad-hoc re-sign)
+        run: |
+          IPA="$RUNNER_TEMP/ipa/boschue-unsigned.ipa"
+          WORK="$RUNNER_TEMP/resign"
+          OUT="$RUNNER_TEMP/ipa/boschue.ipa"
+
+          # 解压 IPA
+          rm -rf "$WORK"
+          mkdir -p "$WORK"
+          cd "$WORK"
+          unzip -q "$IPA"
+
+          # 对 .app 做 ad-hoc 重签名 (identity = "-" 表示 ad-hoc)
+          APP=$(find "$WORK/Payload" -maxdepth 1 -name "*.app" | head -1)
+          echo "Signing: $APP"
+          codesign --force --deep --sign - "$APP"
+
+          # 重新打包 IPA
+          cd "$WORK"
+          zip -qr "$OUT" Payload
+
+          # 替换原始 unsigned IPA
+          mv "$OUT" "$IPA"
+          echo "--- 转换完成 ---"
+          ls -la "$RUNNER_TEMP/ipa/"
+          echo "--- IPA contents ---"
+          unzip -l "$IPA" | head -10
+
+      # ------------------------------------------------------------------
+      # 9. 上传
       # ------------------------------------------------------------------
       - name: Upload artifact
         uses: actions/upload-artifact@v4

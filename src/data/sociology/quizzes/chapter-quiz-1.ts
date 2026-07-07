@@ -5,7 +5,7 @@ export const CHAPTER_QUIZ_1: Quiz[] = [
   {
     id: 'SOC-CH1-Q1',
     type: 'chapter-quiz',
-    refId: 'SOC-CH1',
+    refId: 'S-CH1',
     subjectId: 'sociology',
     question: '奥古斯特·孔德提出的"三阶段法则"中，不包括以下哪个阶段？',
     options: [
@@ -22,7 +22,7 @@ export const CHAPTER_QUIZ_1: Quiz[] = [
   {
     id: 'SOC-CH1-Q2',
     type: 'chapter-quiz',
-    refId: 'SOC-CH1',
+    refId: 'S-CH1',
     subjectId: 'sociology',
     question: '迪尔凯姆（涂尔干）主张社会学研究的核心对象是什么？',
     options: [
@@ -39,7 +39,7 @@ export const CHAPTER_QUIZ_1: Quiz[] = [
   {
     id: 'SOC-CH1-Q3',
     type: 'chapter-quiz',
-    refId: 'SOC-CH1',
+    refId: 'S-CH1',
     subjectId: 'sociology',
     question: '韦伯提出的"理想类型"（Ideal Type）是一种：',
     options: [
@@ -56,7 +56,7 @@ export const CHAPTER_QUIZ_1: Quiz[] = [
   {
     id: 'SOC-CH1-Q4',
     type: 'chapter-quiz',
-    refId: 'SOC-CH1',
+    refId: 'S-CH1',
     subjectId: 'sociology',
     question: '以下哪项属于"社会学想象力"（米尔斯）的核心含义？',
     options: [
@@ -73,7 +73,7 @@ export const CHAPTER_QUIZ_1: Quiz[] = [
   {
     id: 'SOC-CH1-Q5',
     type: 'chapter-quiz',
-    refId: 'SOC-CH1',
+    refId: 'S-CH1',
     subjectId: 'sociology',
     question: '社会学与心理学的主要区别在于：',
     options: [

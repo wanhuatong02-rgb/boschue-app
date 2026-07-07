@@ -5,7 +5,7 @@ export const S039_QUIZ: Quiz[] = [
   {
     id: 'soc_s039_q001',
     type: 'lesson-quiz',
-    refId: 'S039',
+    refId: 'S-D09',
     subjectId: 'sociology',
 
     question: '社会变迁对个体的主要影响是什么？',
@@ -23,7 +23,7 @@ export const S039_QUIZ: Quiz[] = [
   {
     id: 'soc_s039_q002',
     type: 'lesson-quiz',
-    refId: 'S039',
+    refId: 'S-D09',
     subjectId: 'sociology',
 
     question: '心理应激是指什么？',
@@ -41,7 +41,7 @@ export const S039_QUIZ: Quiz[] = [
   {
     id: 'soc_s039_q003',
     type: 'lesson-quiz',
-    refId: 'S039',
+    refId: 'S-D09',
     subjectId: 'sociology',
 
     question: '快速社会变迁可能导致的问题不包括以下哪项？',
@@ -59,7 +59,7 @@ export const S039_QUIZ: Quiz[] = [
   {
     id: 'soc_s039_q004',
     type: 'lesson-quiz',
-    refId: 'S039',
+    refId: 'S-D09',
     subjectId: 'sociology',
 
     question: '变迁也可能带来积极心理影响，如新的机会、更开放的环境、个人发展空间等。',
@@ -75,7 +75,7 @@ export const S039_QUIZ: Quiz[] = [
   {
     id: 'soc_s039_q005',
     type: 'lesson-quiz',
-    refId: 'S039',
+    refId: 'S-D09',
     subjectId: 'sociology',
 
     question: '社会支持系统在个体适应变迁中的作用是什么？',

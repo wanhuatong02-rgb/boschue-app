@@ -5,7 +5,7 @@ export const S025_QUIZ: Quiz[] = [
   {
     id: 'soc_s025_q001',
     type: 'lesson-quiz',
-    refId: 'S025',
+    refId: 'S-C05',
     subjectId: 'sociology',
 
     question: '贫困问题属于社会学研究的哪个范畴？',
@@ -23,7 +23,7 @@ export const S025_QUIZ: Quiz[] = [
   {
     id: 'soc_s025_q002',
     type: 'lesson-quiz',
-    refId: 'S025',
+    refId: 'S-C05',
     subjectId: 'sociology',
 
     question: '教育机会不平等问题如何影响社会？',
@@ -41,7 +41,7 @@ export const S025_QUIZ: Quiz[] = [
   {
     id: 'soc_s025_q003',
     type: 'lesson-quiz',
-    refId: 'S025',
+    refId: 'S-C05',
     subjectId: 'sociology',
 
     question: '社会福利制度的主要目标是什么？',
@@ -59,7 +59,7 @@ export const S025_QUIZ: Quiz[] = [
   {
     id: 'soc_s025_q004',
     type: 'lesson-quiz',
-    refId: 'S025',
+    refId: 'S-C05',
     subjectId: 'sociology',
 
     question: '社会资本、文化资本、经济资本等影响教育机会，进而影响贫困问题。',
@@ -75,7 +75,7 @@ export const S025_QUIZ: Quiz[] = [
   {
     id: 'soc_s025_q005',
     type: 'lesson-quiz',
-    refId: 'S025',
+    refId: 'S-C05',
     subjectId: 'sociology',
 
     question: '贫困的社会根源不包括以下哪项？',

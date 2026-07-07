@@ -5,7 +5,7 @@ export const S041_QUIZ: Quiz[] = [
   {
     id: 'soc_s041_q001',
     type: 'lesson-quiz',
-    refId: 'S041',
+    refId: 'S-E01',
     subjectId: 'sociology',
 
     question: '犯罪社会学主要从什么角度研究犯罪现象？',
@@ -23,7 +23,7 @@ export const S041_QUIZ: Quiz[] = [
   {
     id: 'soc_s041_q002',
     type: 'lesson-quiz',
-    refId: 'S041',
+    refId: 'S-E01',
     subjectId: 'sociology',
 
     question: '犯罪的社会根源不包括以下哪项？',
@@ -41,7 +41,7 @@ export const S041_QUIZ: Quiz[] = [
   {
     id: 'soc_s041_q003',
     type: 'lesson-quiz',
-    refId: 'S041',
+    refId: 'S-E01',
     subjectId: 'sociology',
 
     question: '犯罪预防的层次不包括以下哪项？',
@@ -59,7 +59,7 @@ export const S041_QUIZ: Quiz[] = [
   {
     id: 'soc_s041_q004',
     type: 'lesson-quiz',
-    refId: 'S041',
+    refId: 'S-E01',
     subjectId: 'sociology',
 
     question: '刑罚具有报应、威慑、矫正、保护等多种社会功能。',
@@ -75,7 +75,7 @@ export const S041_QUIZ: Quiz[] = [
   {
     id: 'soc_s041_q005',
     type: 'lesson-quiz',
-    refId: 'S041',
+    refId: 'S-E01',
     subjectId: 'sociology',
 
     question: '社会失范理论认为什么导致了犯罪增加？',

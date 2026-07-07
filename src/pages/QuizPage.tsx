@@ -47,7 +47,9 @@ export default function QuizPage() {
     }
 
     if (quizzes.length === 0) {
-      navigate('/');
+      // 空题集时友好回退：回学科/首页，不静默丢失
+      const backTo = subjectId ? `/subject/${subjectId}` : lessonId ? `/subject/sociology` : '/';
+      navigate(backTo, { replace: true });
       return;
     }
 

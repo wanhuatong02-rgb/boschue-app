@@ -5,7 +5,7 @@ export const S040_QUIZ: Quiz[] = [
   {
     id: 'soc_s040_q001',
     type: 'lesson-quiz',
-    refId: 'S040',
+    refId: 'S-D10',
     subjectId: 'sociology',
 
     question: '价值观在社会中的作用是什么？',
@@ -23,7 +23,7 @@ export const S040_QUIZ: Quiz[] = [
   {
     id: 'soc_s040_q002',
     type: 'lesson-quiz',
-    refId: 'S040',
+    refId: 'S-D10',
     subjectId: 'sociology',
 
     question: '传统价值强调什么？',
@@ -41,7 +41,7 @@ export const S040_QUIZ: Quiz[] = [
   {
     id: 'soc_s040_q003',
     type: 'lesson-quiz',
-    refId: 'S040',
+    refId: 'S-D10',
     subjectId: 'sociology',
 
     question: '现代价值强调什么？',
@@ -59,7 +59,7 @@ export const S040_QUIZ: Quiz[] = [
   {
     id: 'soc_s040_q004',
     type: 'lesson-quiz',
-    refId: 'S040',
+    refId: 'S-D10',
     subjectId: 'sociology',
 
     question: '价值观具有层次性，核心价值观相对稳定，外围价值观容易发生变化。',
@@ -75,7 +75,7 @@ export const S040_QUIZ: Quiz[] = [
   {
     id: 'soc_s040_q005',
     type: 'lesson-quiz',
-    refId: 'S040',
+    refId: 'S-D10',
     subjectId: 'sociology',
 
     question: '全球化对价值观变迁的影响是什么？',

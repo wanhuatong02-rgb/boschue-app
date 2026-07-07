@@ -5,7 +5,7 @@ export const S031_QUIZ: Quiz[] = [
   {
     id: 'soc_s031_q001',
     type: 'lesson-quiz',
-    refId: 'S031',
+    refId: 'S-D01',
     subjectId: 'sociology',
 
     question: '集体行为的类型不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S031_QUIZ: Quiz[] = [
   {
     id: 'soc_s031_q002',
     type: 'lesson-quiz',
-    refId: 'S031',
+    refId: 'S-D01',
     subjectId: 'sociology',
 
     question: '勒庞的乌合之众理论认为群体中的个体会怎样？',
@@ -41,7 +41,7 @@ export const S031_QUIZ: Quiz[] = [
   {
     id: 'soc_s031_q003',
     type: 'lesson-quiz',
-    refId: 'S031',
+    refId: 'S-D01',
     subjectId: 'sociology',
 
     question: '相对剥夺理论关注的是什么？',
@@ -59,7 +59,7 @@ export const S031_QUIZ: Quiz[] = [
   {
     id: 'soc_s031_q004',
     type: 'lesson-quiz',
-    refId: 'S031',
+    refId: 'S-D01',
     subjectId: 'sociology',
 
     question: '集体行为与制度化行为不同，它缺乏明确的组织结构、规章制度和正式目标。',
@@ -75,7 +75,7 @@ export const S031_QUIZ: Quiz[] = [
   {
     id: 'soc_s031_q005',
     type: 'lesson-quiz',
-    refId: 'S031',
+    refId: 'S-D01',
     subjectId: 'sociology',
 
     question: '情绪感染理论强调什么在集体行为中的作用？',

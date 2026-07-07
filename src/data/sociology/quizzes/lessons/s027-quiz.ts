@@ -5,7 +5,7 @@ export const S027_QUIZ: Quiz[] = [
   {
     id: 'soc_s027_q001',
     type: 'lesson-quiz',
-    refId: 'S027',
+    refId: 'S-C07',
     subjectId: 'sociology',
 
     question: '涂尔干认为劳动分工有什么社会作用？',
@@ -23,7 +23,7 @@ export const S027_QUIZ: Quiz[] = [
   {
     id: 'soc_s027_q002',
     type: 'lesson-quiz',
-    refId: 'S027',
+    refId: 'S-C07',
     subjectId: 'sociology',
 
     question: '职业声望通常与哪些因素相关？',
@@ -41,7 +41,7 @@ export const S027_QUIZ: Quiz[] = [
   {
     id: 'soc_s027_q003',
     type: 'lesson-quiz',
-    refId: 'S027',
+    refId: 'S-C07',
     subjectId: 'sociology',
 
     question: '后工业社会的劳动特征不包括以下哪项？',
@@ -59,7 +59,7 @@ export const S027_QUIZ: Quiz[] = [
   {
     id: 'soc_s027_q004',
     type: 'lesson-quiz',
-    refId: 'S027',
+    refId: 'S-C07',
     subjectId: 'sociology',
 
     question: '地位获得模型分析个体如何获得特定社会地位，包括先赋地位和自致地位。',
@@ -75,7 +75,7 @@ export const S027_QUIZ: Quiz[] = [
   {
     id: 'soc_s027_q005',
     type: 'lesson-quiz',
-    refId: 'S027',
+    refId: 'S-C07',
     subjectId: 'sociology',
 
     question: '现代工作场所的特点不包括以下哪项？',

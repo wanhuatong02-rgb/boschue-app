@@ -5,7 +5,7 @@ export const S022_QUIZ: Quiz[] = [
   {
     id: 'soc_s022_q001',
     type: 'lesson-quiz',
-    refId: 'S022',
+    refId: 'S-C02',
     subjectId: 'sociology',
 
     question: '现代化的特征不包括以下哪项？',
@@ -23,7 +23,7 @@ export const S022_QUIZ: Quiz[] = [
   {
     id: 'soc_s022_q002',
     type: 'lesson-quiz',
-    refId: 'S022',
+    refId: 'S-C02',
     subjectId: 'sociology',
 
     question: '传统社会向现代社会转型的过程中，社会结构发生了怎样的变化？',
@@ -41,7 +41,7 @@ export const S022_QUIZ: Quiz[] = [
   {
     id: 'soc_s022_q003',
     type: 'lesson-quiz',
-    refId: 'S022',
+    refId: 'S-C02',
     subjectId: 'sociology',
 
     question: '现代化的负面后果不包括以下哪项？',
@@ -59,7 +59,7 @@ export const S022_QUIZ: Quiz[] = [
   {
     id: 'soc_s022_q004',
     type: 'lesson-quiz',
-    refId: 'S022',
+    refId: 'S-C02',
     subjectId: 'sociology',
 
     question: '依附理论认为发展中国家被纳入世界资本主义体系后，处于依附地位，难以实现真正的自主发展。',
@@ -75,7 +75,7 @@ export const S022_QUIZ: Quiz[] = [
   {
     id: 'soc_s022_q005',
     type: 'lesson-quiz',
-    refId: 'S022',
+    refId: 'S-C02',
     subjectId: 'sociology',
 
     question: '现代化过程中的一个重要价值观转变是什么？',

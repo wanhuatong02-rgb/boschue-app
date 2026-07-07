@@ -5,7 +5,7 @@ export const S037_QUIZ: Quiz[] = [
   {
     id: 'soc_s037_q001',
     type: 'lesson-quiz',
-    refId: 'S037',
+    refId: 'S-D07',
     subjectId: 'sociology',
 
     question: '社会认知研究什么？',
@@ -23,7 +23,7 @@ export const S037_QUIZ: Quiz[] = [
   {
     id: 'soc_s037_q002',
     type: 'lesson-quiz',
-    refId: 'S037',
+    refId: 'S-D07',
     subjectId: 'sociology',
 
     question: '首因效应指的是什么？',
@@ -41,7 +41,7 @@ export const S037_QUIZ: Quiz[] = [
   {
     id: 'soc_s037_q003',
     type: 'lesson-quiz',
-    refId: 'S037',
+    refId: 'S-D07',
     subjectId: 'sociology',
 
     question: '归因理论中的内部归因是指什么？',
@@ -59,7 +59,7 @@ export const S037_QUIZ: Quiz[] = [
   {
     id: 'soc_s037_q004',
     type: 'lesson-quiz',
-    refId: 'S037',
+    refId: 'S-D07',
     subjectId: 'sociology',
 
     question: '基本归因错误是指倾向于过度强调外部因素而忽视内部因素解释他人行为。',
@@ -75,7 +75,7 @@ export const S037_QUIZ: Quiz[] = [
   {
     id: 'soc_s037_q005',
     type: 'lesson-quiz',
-    refId: 'S037',
+    refId: 'S-D07',
     subjectId: 'sociology',
 
     question: '代表性启发是指什么？',
